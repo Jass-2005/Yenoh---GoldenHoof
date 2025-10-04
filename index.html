@@ -12,9 +12,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="PURE LOGO.png" type="image/png">
+    <title>GoldenHoof Travels</title>
     
     <!-- Custom Styles -->
     <style>
+/* In your CSS media query block */
+.active-menu-link {
+    color: #D4AF37 !important; /* The !important is crucial for overriding utilities */
+    /* ... other styles */
+}
+
         :root {
             --deep-green: #013220;
             --elegant-gold: #D4AF37;
@@ -132,7 +140,7 @@
   text-align: center;
   color: white;
   /* ORIGINAL BACKGROUND IMAGE IS HERE */
-  background-image: url('airplane-miniature-notepad-world-map-laptop-wooden-table.jpg'); 
+  background-image: url('labour-burden-in-construction.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -237,6 +245,8 @@
   .cta-buttons {
     flex-direction: row;
   }
+
+  
         #globe-container {
             position: absolute;
             top: 0;
@@ -307,14 +317,9 @@
             100% { box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
         }
 
-/* Add this class to your existing <style> block */
-.scrollbar-hide::-webkit-scrollbar {
-    display: none;
-}
-.scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
+
+
+  
 
     </style>
 </head>
@@ -323,19 +328,29 @@
     <!-- Header & Navigation -->
     <header id="header" class="bg-deep-green text-white fixed w-full z-50 transition-shadow duration-300 shadow-lg">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-             <a href="#">
-                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-12">
-            </a>
+          <a href="index.html" class="flex items-center space-x-3">
+    <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-12">
+    
+    <div class="flex flex-col sm:flex-row sm:space-x-1">
+        
+        <h1 class="text-lg sm:text-xl font-bold text-elegant-gold uppercase">
+            GoldenHoof
+        </h1>
+        
+        <h1 class="text-lg sm:text-xl font-bold text-elegant-white uppercase">
+            Travels
+        </h1>
+        
+    </div>
+</a>
             <nav class="hidden lg:flex items-center space-x-6">
                 <a href="index.html" class="nav-link active">Home</a>
-               <a href="services.html" class="nav-link">Services</a>
+                <a href="services.html" class="nav-link">Services</a>
                 <a href="work-visa.html" class="nav-link">Work & Visa</a>
-                
                 <a href="destination.HTML" class="nav-link">Destinations</a>
-                
                 <a href="GALLERY.HTML" class="nav-link">Gallery</a>
                 <a href="about.html" class="nav-link">About Us</a>
-                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
             </nav>
             <div class="lg:hidden">
                 <button id="mobile-menu-button" class="text-white focus:outline-none">
@@ -344,18 +359,15 @@
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-deep-green/95 backdrop-blur-sm">
-            <a href="index.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Home</a>
-            
-           
-            <a href="services.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Services</a>
-           
-            <a href="work-visa.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Work & Visa</a>
-             <a href="destination.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Destinations</a>
-            <a href="gallery.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Gallery</a>
-             <a href="about.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">About Us</a>
-            <a href="contact.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Contact Us</a>
-        </div>
+     <div id="mobile-menu" class="hidden lg:hidden bg-deep-green/95 backdrop-blur-sm">
+    <a href="index.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Home</a>
+    <a href="services.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Services</a>
+    <a href="work-visa.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Work & Visa</a>
+    <a href="destination.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Destinations</a>
+    <a href="gallery.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Gallery</a>
+    <a href="about.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">About Us</a>
+    <a href="contact.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Contact Us</a>
+</div>
     </header>
 
     <main id="main-content" class="pt-16">
@@ -633,7 +645,7 @@
     </script>
 <!-- Code injected by live-server -->
 <script>
-	// <![CDATA[  <-- For SVG support
+	// <!CDATA <-- For SVG support
 	if ('WebSocket' in window) {
 		(function () {
 			function refreshCSS() {
@@ -667,7 +679,7 @@
 	else {
 		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
 	}
-	// ]]
+	// 
 
 // --- Scroll to Top Button Logic ---
 const scrollToTopBtn = document.getElementById('scrollToTopBtn');
@@ -707,5 +719,29 @@ if (scrollToTopBtn) {
 </script>
 
 
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the current page's filename (e.g., 'index.html', 'services.html')
+        const currentPath = window.location.pathname.split('/').pop().toLowerCase() || 'index.html';
+        
+        // Select all the links in the mobile menu
+        const menuLinks = document.querySelectorAll('#mobile-menu a');
+        
+        menuLinks.forEach(link => {
+            const linkPath = link.getAttribute('href').toLowerCase();
+            
+            // Check if the link's href matches the current page's path
+            if (linkPath === currentPath) {
+                // Add the custom active classes
+                link.classList.add('active-menu-link', 'animate-underline');
+                
+                // Remove conflicting Tailwind classes to let the custom CSS control the color/style
+                link.classList.remove('text-white', 'hover:bg-elegant-gold', 'hover:text-deep-green');
+            }
+        });
+    });
+</script>
 </body>
 </html>
+
