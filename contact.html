@@ -12,9 +12,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    
+    <link rel="icon" href="PURE LOGO.png" type="image/png">
+    <title>GoldenHoof Travels</title>
+        
     <!-- Custom Styles -->
     <style>
+        .active-menu-link {
+    color: #D4AF37 !important; /* The !important is crucial for overriding utilities */
+    /* ... other styles */
+}
         :root {
             --deep-green: #013220;
             --elegant-gold: #D4AF37;
@@ -104,17 +110,30 @@
     <!-- Header & Navigation -->
     <header id="header" class="bg-deep-green text-white fixed w-full z-50 transition-shadow duration-300 shadow-lg">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-             <a href="index.html">
-                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-12">
-            </a>
+            <a href="index.html" class="flex items-center space-x-3">
+    <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-12">
+    
+    <div class="flex flex-col sm:flex-row sm:space-x-1">
+        
+        <h1 class="text-lg sm:text-xl font-bold text-elegant-gold uppercase">
+            GoldenHoof
+        </h1>
+        
+        <h1 class="text-lg sm:text-xl font-bold text-elegant-white uppercase">
+            Travels
+        </h1>
+        
+    </div>
+</a>
             <nav class="hidden lg:flex items-center space-x-6">
                 <a href="index.html" class="nav-link">Home</a>
-                <a href="about.html" class="nav-link">About Us</a>
                 <a href="services.html" class="nav-link">Services</a>
-                <a href="destination.HTML" class="nav-link">Destinations</a>
                 <a href="work-visa.html" class="nav-link">Work & Visa</a>
+                <a href="destination.HTML" class="nav-link">Destinations</a>
                 <a href="gallery.HTML" class="nav-link">Gallery</a>
-                <a href="contact.html" class="nav-link active">Contact</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link active">Contact Us</a>
+
             </nav>
             <div class="lg:hidden">
                 <button id="mobile-menu-button" class="text-white focus:outline-none">
@@ -125,12 +144,13 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden lg:hidden bg-deep-green/95 backdrop-blur-sm">
             <a href="index.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Home</a>
-            <a href="about.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">About Us</a>
             <a href="services.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Services</a>
-            <a href="destination.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Destinations</a>
             <a href="work-visa.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Work & Visa</a>
+            <a href="destination.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Destinations</a>
             <a href="gallery.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Gallery</a>
-            <a href="contact.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Contact</a>
+            
+            <a href="about.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">About Us</a>
+            <a href="contact.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Contact Us</a>
         </div>
     </header>
 
@@ -228,7 +248,7 @@
     <!-- Footer -->
     <footer class="bg-deep-green text-white py-12">
         <div class="container mx-auto px-6 text-center">
-            <a >
+            <a href="index.html">
                 <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-16 mx-auto mb-4">
             </a>
             <p class="text-lg text-elegant-gold mb-6">Your Journey, Our Priority</p>
@@ -294,5 +314,28 @@ if (scrollToTopBtn) {
 }
 
     </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the current page's filename (e.g., 'index.html', 'services.html')
+        const currentPath = window.location.pathname.split('/').pop().toLowerCase() || 'index.html';
+        
+        // Select all the links in the mobile menu
+        const menuLinks = document.querySelectorAll('#mobile-menu a');
+        
+        menuLinks.forEach(link => {
+            const linkPath = link.getAttribute('href').toLowerCase();
+            
+            // Check if the link's href matches the current page's path
+            if (linkPath === currentPath) {
+                // Add the custom active classes
+                link.classList.add('active-menu-link', 'animate-underline');
+                
+                // Remove conflicting Tailwind classes to let the custom CSS control the color/style
+                link.classList.remove('text-white', 'hover:bg-elegant-gold', 'hover:text-deep-green');
+            }
+        });
+    });
+</script>
 </body>
 </html>
