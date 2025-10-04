@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - GoldenHoof Travels</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --deep-green: #013220;
+            --elegant-gold: #D4AF37;
+            --off-white: #F8F8F8;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--off-white);
+            color: #333;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .bg-deep-green { background-color: var(--deep-green); }
+        .text-deep-green { color: var(--deep-green); }
+        .bg-elegant-gold { background-color: var(--elegant-gold); }
+        .text-elegant-gold { color: var(--elegant-gold); }
+        .border-elegant-gold { border-color: var(--elegant-gold); }
+        .bg-off-white { background-color: var(--off-white); }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--elegant-gold);
+            color: var(--deep-green);
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        .cta-button:hover {
+            background-color: var(--deep-green);
+            color: var(--elegant-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(1, 50, 32, 0.3);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+            padding: 4px 8px;
+        }
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--elegant-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link.active, .nav-link:hover {
+            color: var(--elegant-gold);
+        }
+
+        .nav-link.active::after, .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--elegant-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-off-white">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-deep-green text-white fixed w-full z-50 transition-shadow duration-300 shadow-lg">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+             <a href="index.html">
+                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-12">
+            </a>
+            <nav class="hidden lg:flex items-center space-x-6">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="destination.HTML" class="nav-link">Destinations</a>
+                <a href="work-visa.html" class="nav-link">Work & Visa</a>
+                <a href="gallery.HTML" class="nav-link">Gallery</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </nav>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-deep-green/95 backdrop-blur-sm">
+            <a href="index.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Home</a>
+            <a href="about.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">About Us</a>
+            <a href="services.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Services</a>
+            <a href="destination.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Destinations</a>
+            <a href="work-visa.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Work & Visa</a>
+            <a href="gallery.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Gallery</a>
+            <a href="contact.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Contact</a>
+        </div>
+    </header>
+
+    <main id="main-content" class="pt-24 pb-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-deep-green mb-4">Get In Touch</h1>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">We're here to help you plan your next journey or career move. Reach out to us through any of the channels below.</p>
+            </div>
+            
+            <div class="bg-white p-8 md:p-12 rounded-lg shadow-2xl max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Left Column: Contact Info -->
+                    <div class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-deep-green mb-4">Contact Information</h2>
+                            <p class="text-gray-600">Fill up the form and our team will get back to you within 24 hours.</p>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <i data-lucide="phone" class="w-6 h-6 text-elegant-gold mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-deep-green">Phone</h3>
+                                <a href="tel:+917973374228" class="text-gray-600 hover:text-elegant-gold transition">+91 79733-74228</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <i data-lucide="mail" class="w-6 h-6 text-elegant-gold mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-deep-green">Email</h3>
+                                <a href="mailto:goldenhoof.travels90@gmail.com" class="text-gray-600 hover:text-elegant-gold transition">goldenhoof.travels90@gmail.com</a>
+                            </div>
+                        </div>
+                         <div class="flex items-start space-x-4">
+                            <i data-lucide="map-pin" class="w-6 h-6 text-elegant-gold mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-deep-green">Address</h3>
+                                <p class="text-gray-600">SCO 139, D-Block, Amritsar</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column: Contact Form -->
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="font-medium text-gray-700">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-input mt-2" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="email" class="font-medium text-gray-700">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input mt-2" placeholder="johndoe@example.com">
+                        </div>
+                        <div>
+                            <label for="subject" class="font-medium text-gray-700">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-input mt-2" placeholder="Inquiry about...">
+                        </div>
+                        <div>
+                            <label for="message" class="font-medium text-gray-700">Message</label>
+                            <textarea id="message" name="message" rows="5" class="form-input mt-2" placeholder="Your message here..."></textarea>
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" class="cta-button px-8 py-3">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Google Map Section -->
+           <!-- Desktop Map (visible on medium screens and above) -->
+<div class="mt-16 rounded-lg shadow-2xl overflow-hidden hidden md:block" style="position: relative ;height:400px; width: 100%; ">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d212.26304263739016!2d74.8547772!3d31.65551!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391965b40a46835d%3A0xb48aa431941a198f!2sGoldenhoof%20Travels!5e0!3m2!1sen!2sin!4v1759515450655!5m2!1sen!2sin" 
+        style="border:0; position: absolute; top:0; left:0; width:100%; height:100%;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+<!-- Mobile Map (visible on small screens only) -->
+<div class="mt-16 rounded-lg shadow-2xl overflow-hidden block md:hidden" style="position: relative; width: 100%; padding-bottom: 75%;">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d212.26304263739016!2d74.8547772!3d31.65551!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391965b40a46835d%3A0xb48aa431941a198f!2sGoldenhoof%20Travels!5e0!3m2!1sen!2sin!4v1759515450655!5m2!1sen!2sin" 
+        style="border:0; position: absolute; top:0; left:0; width:100%; height:100%;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+        </div>
+    </main>
+<button id="scrollToTopBtn" class="fixed bottom-6 right-6 bg-elegant-gold text-deep-green p-3 rounded-full shadow-2xl transition-all duration-300 opacity-0 transform translate-y-4 hover:bg-deep-green hover:text-elegant-gold z-50 focus:outline-none">
+    <i data-lucide="arrow-up" class="h-6 w-6"></i>
+</button>
+    <!-- Footer -->
+    <footer class="bg-deep-green text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <a >
+                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-16 mx-auto mb-4">
+            </a>
+            <p class="text-lg text-elegant-gold mb-6">Your Journey, Our Priority</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="facebook"></i></a>
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="instagram"></i></a>
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="twitter"></i></a>
+            </div>
+            <p class="text-gray-400 text-sm">&copy; 2025 GoldenHoof Travels. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // --- Mobile Menu Toggle ---
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        // --- Final Initialization ---
+        lucide.createIcons();
+    });
+
+// --- Scroll to Top Button Logic ---
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+// Function to check scroll position and toggle button visibility
+function toggleScrollToTopButton() {
+    if (window.scrollY > 400) { // Show button after scrolling 400px down
+        scrollToTopBtn.classList.remove('opacity-0', 'translate-y-4');
+        scrollToTopBtn.classList.add('opacity-100', 'translate-y-0');
+    } else {
+        scrollToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+        scrollToTopBtn.classList.add('opacity-0', 'translate-y-4');
+    }
+}
+
+// Function to handle the scroll action
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Smooth scrolling effect
+    });
+}
+
+// Event Listeners
+if (scrollToTopBtn) {
+    // 1. Listen for scroll events to toggle visibility
+    window.addEventListener('scroll', toggleScrollToTopButton);
+    
+    // 2. Listen for button clicks to scroll to the top
+    scrollToTopBtn.addEventListener('click', scrollToTop);
+    
+    // Initial check on load
+    toggleScrollToTopButton();
+}
+
+    </script>
+</body>
+</html>

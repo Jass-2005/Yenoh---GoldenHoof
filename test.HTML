@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoldenHoof Travels - Your Journey, Our Priority</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --deep-green: #013220;
+            --elegant-gold: #D4AF37;
+            --off-white: #F8F8F8;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--deep-green);
+            color: #333;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .bg-deep-green { background-color: var(--deep-green); }
+        .text-deep-green { color: var(--deep-green); }
+        .bg-elegant-gold { background-color: var(--elegant-gold); }
+        .text-elegant-gold { color: var(--elegant-gold); }
+        .border-elegant-gold { border-color: var(--elegant-gold); }
+        .bg-off-white { background-color: var(--off-white); }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--elegant-gold);
+            color: var(--deep-green);
+            font-weight: 700;
+            padding: 0.85rem 2.5rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        .cta-button:hover {
+            background-color: #fff;
+            color: var(--deep-green);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+            padding: 4px 8px;
+        }
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--elegant-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link.active, .nav-link:hover {
+            color: var(--elegant-gold);
+        }
+
+        .nav-link.active::after, .nav-link.hover::after {
+            width: 100%;
+        }
+        
+        #globe-container {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+        }
+    </style>
+</head>
+<body class="bg-deep-green">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-deep-green text-white fixed w-full z-50 transition-shadow duration-300">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+             <a href="index.html">
+                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-12">
+            </a>
+            <nav class="hidden lg:flex items-center space-x-6">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="destination.HTML" class="nav-link">Destinations</a>
+                <a href="work-visa.html" class="nav-link">Work & Visa</a>
+                <a href="gallery.HTML" class="nav-link">Gallery</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-deep-green/95 backdrop-blur-sm">
+             <a href="index.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Home</a>
+            <a href="about.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">About Us</a>
+            <a href="services.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Services</a>
+            <a href="destination.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Destinations</a>
+            <a href="work-visa.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Work & Visa</a>
+            <a href="gallery.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Gallery</a>
+            <a href="contact.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Contact</a>
+        </div>
+    </header>
+
+    <!-- New Hero Section -->
+    <main>
+        <section class="min-h-screen flex items-center bg-deep-green text-white pt-20 lg:pt-0">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-8 items-center">
+                    <!-- Left Content -->
+                    <div class="text-center lg:text-left">
+                        <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-4">Your Journey,<br>Our Priority.</h1>
+                        <p class="text-lg text-gray-300 max-w-lg mx-auto lg:mx-0 mb-8">
+                            Experience the world with GoldenHoof Travels. We craft bespoke luxury tours and create global career opportunities with unparalleled dedication and expertise.
+                        </p>
+                        <a href="#" class="cta-button">Plan Your Trip</a>
+                    </div>
+                    
+                    <!-- Right Content (3D Globe) -->
+                    <div id="globe-container"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Other sections can be added here as needed -->
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-deep-green text-white py-12 border-t border-white/10">
+        <div class="container mx-auto px-6 text-center">
+            <a href="#">
+                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-16 mx-auto mb-4">
+            </a>
+            <p class="text-lg text-elegant-gold mb-6">Your Journey, Our Priority</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="facebook"></i></a>
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="instagram"></i></a>
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="twitter"></i></a>
+            </div>
+            <p class="text-gray-400 text-sm">&copy; 2025 GoldenHoof Travels. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="importmap">
+        { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js" } }
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // --- Mobile Menu Toggle ---
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // --- 3D Globe Logic ---
+            const container = document.getElementById('globe-container');
+            if (!container) return;
+
+            let scene, camera, renderer, globe, airplane, clock;
+            
+            function init() {
+                // Scene
+                scene = new THREE.Scene();
+                clock = new THREE.Clock();
+                
+                // Camera
+                camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+                camera.position.z = 3.5;
+
+                // Renderer
+                renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+                renderer.setSize(container.clientWidth, container.clientHeight);
+                renderer.setPixelRatio(window.devicePixelRatio);
+                container.appendChild(renderer.domElement);
+                
+                // Lights
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+                scene.add(ambientLight);
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+                directionalLight.position.set(5, 3, 5);
+                scene.add(directionalLight);
+
+                // Globe with realistic textures
+                const textureLoader = new THREE.TextureLoader();
+                const geometry = new THREE.SphereGeometry(1.5, 64, 64);
+                const material = new THREE.MeshPhongMaterial({
+                    map: textureLoader.load('https://threejs.org/examples/textures/land_ocean_ice_cloud_2048.jpg'),
+                    bumpMap: textureLoader.load('https://threejs.org/examples/textures/earth_bump.jpg'),
+                    bumpScale: 0.05,
+                    specularMap: textureLoader.load('https://threejs.org/examples/textures/water.png'),
+                    specular: new THREE.Color('grey')
+                });
+                globe = new THREE.Mesh(geometry, material);
+                scene.add(globe);
+
+                // Create the orbital path (dotted line)
+                const curve = new THREE.EllipseCurve(
+                    0, 0,            // ax, aY
+                    1.8, 1.8,         // xRadius, yRadius
+                    0, 2 * Math.PI,  // aStartAngle, aEndAngle
+                    false,           // aClockwise
+                    0                // aRotation
+                );
+                
+                const points = curve.getPoints(200);
+                const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
+                const lineMaterial = new THREE.LineDashedMaterial({
+                    color: 0xD4AF37,
+                    linewidth: 1,
+                    scale: 1,
+                    dashSize: 0.1,
+                    gapSize: 0.05,
+                });
+                const orbitLine = new THREE.Line(lineGeometry, lineMaterial);
+                orbitLine.computeLineDistances();
+                orbitLine.rotation.x = Math.PI / 4; // Tilt the orbit
+                scene.add(orbitLine);
+
+                // Create the airplane (as a golden sphere)
+                const planeGeometry = new THREE.SphereGeometry(0.04, 16, 16);
+                const planeMaterial = new THREE.MeshBasicMaterial({ color: 0xD4AF37 });
+                airplane = new THREE.Mesh(planeGeometry, planeMaterial);
+                airplane.position.set(1.8, 0, 0); // Initial position
+                
+                // Parent the airplane to the tilted orbit line's logic
+                const orbitGroup = new THREE.Group();
+                orbitGroup.rotation.x = Math.PI / 4;
+                orbitGroup.add(airplane);
+                scene.add(orbitGroup);
+
+                // Event Listeners
+                window.addEventListener('resize', onWindowResize);
+            }
+
+            function onWindowResize() {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                // Animate the airplane along the path
+                const elapsedTime = clock.getElapsedTime();
+                const angle = (elapsedTime * 0.5) % (2 * Math.PI); // speed control
+                airplane.position.x = 1.8 * Math.cos(angle);
+                airplane.position.y = 1.8 * Math.sin(angle);
+
+                renderer.render(scene, camera);
+            }
+
+            init();
+            animate();
+            
+            // --- Final Icon Initialization ---
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
+

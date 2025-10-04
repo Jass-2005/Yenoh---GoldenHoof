@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Trip Planner - GoldenHoof Travels</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --deep-green: #013220;
+            --elegant-gold: #D4AF37;
+            --off-white: #F8F8F8;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--off-white);
+            color: #333;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .bg-deep-green { background-color: var(--deep-green); }
+        .text-deep-green { color: var(--deep-green); }
+        .bg-elegant-gold { background-color: var(--elegant-gold); }
+        .text-elegant-gold { color: var(--elegant-gold); }
+        .border-elegant-gold { border-color: var(--elegant-gold); }
+        .bg-off-white { background-color: var(--off-white); }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--elegant-gold);
+            color: var(--deep-green);
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        .cta-button:hover {
+            background-color: var(--deep-green);
+            color: var(--elegant-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(1, 50, 32, 0.3);
+        }
+        .cta-button:disabled {
+            background-color: #a0a0a0;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+            padding: 4px 8px;
+        }
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--elegant-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link.active, .nav-link:hover {
+            color: var(--elegant-gold);
+        }
+
+        .nav-link.active::after, .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Loading Spinner */
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 5px solid var(--elegant-gold);
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 3rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #itinerary-result h2 {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        #itinerary-result .day-card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUpFadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUpFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-off-white">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-deep-green text-white fixed w-full z-50 transition-shadow duration-300 shadow-lg">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+             <a href="#">
+                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-12">
+            </a>
+            <nav class="hidden lg:flex items-center space-x-6">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="ai-planner.html" class="nav-link active">✨ AI Planner</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="destination.HTML" class="nav-link">Destinations</a>
+                <a href="work-visa.html" class="nav-link">Work & Visa</a>
+                <a href="gallery.HTML" class="nav-link">Gallery</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-deep-green/95 backdrop-blur-sm">
+            <a href="index.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Home</a>
+            <a href="ai-planner.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">✨ AI Planner</a>
+            <a href="about.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">About Us</a>
+            <a href="services.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Services</a>
+            <a href="destination.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Destinations</a>
+            <a href="work-visa.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Work & Visa</a>
+            <a href="gallery.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Gallery</a>
+            <a href="contact.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Contact</a>
+        </div>
+    </header>
+
+    <main id="main-content" class="pt-24 pb-20">
+        <!-- AI Planner Section -->
+        <div id="ai-planner" class="container mx-auto px-6">
+            <div class="bg-white p-8 md:p-12 rounded-lg shadow-2xl max-w-4xl mx-auto">
+                <div class="text-center mb-8">
+                    <span class="text-5xl">✨</span>
+                    <h1 class="text-4xl md:text-5xl font-bold text-deep-green mt-2 mb-4">AI Trip Planner</h1>
+                    <p class="text-gray-600 text-lg">Describe your dream vacation, and let our AI create a personalized itinerary just for you.</p>
+                </div>
+                
+                <div class="space-y-6">
+                    <div>
+                        <label for="trip-prompt" class="sr-only">Trip Description</label>
+                        <textarea id="trip-prompt" rows="4" class="w-full p-4 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-elegant-gold focus:border-elegant-gold transition" placeholder="e.g., A 7-day romantic getaway to Paris for a couple who loves art, food, and history. Budget is flexible."></textarea>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button id="generate-itinerary-btn" class="cta-button text-lg px-12 py-4">
+                            Generate Itinerary
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Result Container -->
+                <div id="itinerary-result" class="mt-12 hidden">
+                    <!-- AI generated content will be injected here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-deep-green text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <a href="#">
+                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-16 mx-auto mb-4">
+            </a>
+            <p class="text-lg text-elegant-gold mb-6">Your Journey, Our Priority</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="facebook"></i></a>
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="instagram"></i></a>
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="twitter"></i></a>
+            </div>
+            <p class="text-gray-400 text-sm">&copy; 2025 GoldenHoof Travels. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const itineraryGenBtn = document.getElementById('generate-itinerary-btn');
+        const resultContainer = document.getElementById('itinerary-result');
+        const promptTextarea = document.getElementById('trip-prompt');
+
+        // --- Mobile Menu Toggle ---
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        // --- Gemini API Call Function ---
+        async function callGeminiAPI(payload, retryCount = 0) {
+            const apiKey = ""; // Left empty as per instructions
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+            const maxRetries = 3;
+            const backoffDelay = 1000 * Math.pow(2, retryCount); // Exponential backoff
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                     if (response.status === 429 && retryCount < maxRetries) {
+                        console.warn(`Throttled. Retrying in ${backoffDelay}ms...`);
+                        await new Promise(resolve => setTimeout(resolve, backoffDelay));
+                        return callGeminiAPI(payload, retryCount + 1);
+                    }
+                    const errorBody = await response.text();
+                    throw new Error(`API Error: ${response.status} ${errorBody}`);
+                }
+                const result = await response.json();
+                return result.candidates?.[0]?.content?.parts?.[0]?.text;
+            } catch (error) {
+                console.error("Gemini API call failed:", error);
+                return null;
+            }
+        }
+
+        // --- Itinerary Generation Logic ---
+        if (itineraryGenBtn) {
+            itineraryGenBtn.addEventListener('click', async () => {
+                const promptText = promptTextarea.value;
+                if (!promptText.trim()) {
+                    alert('Please describe your desired trip.');
+                    return;
+                }
+
+                // Show loader and disable button
+                itineraryGenBtn.disabled = true;
+                itineraryGenBtn.textContent = 'Generating...';
+                resultContainer.innerHTML = '<div class="loader"></div>';
+                resultContainer.classList.remove('hidden');
+
+                const userPrompt = `Create a detailed travel itinerary based on this request: "${promptText}". The response must be a single valid JSON object. This object should have a "tripTitle" (string) and an "itinerary" which is an array of objects. Each object in the "itinerary" array must have "day" (number), "location" (string), "activity" (string), and "description" (string). Do not include any text, notes, or markdown formatting outside of the JSON object.`;
+                
+                const payload = {
+                    contents: [{ parts: [{ text: userPrompt }] }],
+                    generationConfig: { responseMimeType: "application/json" }
+                };
+
+                const resultText = await callGeminiAPI(payload);
+
+                if (resultText) {
+                    try {
+                        const data = JSON.parse(resultText);
+                        let html = `<h2 class="text-3xl font-bold text-deep-green text-center mb-8">${data.tripTitle}</h2>`;
+                        html += '<div class="space-y-6">';
+                        data.itinerary.forEach((day, index) => {
+                            html += `
+                                <div class="p-5 border-l-4 border-elegant-gold bg-gray-50 rounded-r-lg shadow-sm day-card" style="animation-delay: ${index * 100}ms;">
+                                    <h3 class="text-xl font-bold text-deep-green flex items-center">
+                                        <i data-lucide="calendar-check" class="h-5 w-5 mr-2 text-elegant-gold"></i>
+                                        Day ${day.day}: ${day.activity}
+                                    </h3>
+                                    <p class="font-semibold text-gray-700 my-2 flex items-center">
+                                        <i data-lucide="map-pin" class="h-5 w-5 mr-2 text-elegant-gold"></i>
+                                        ${day.location}
+                                    </p>
+                                    <p class="text-gray-600">${day.description}</p>
+                                </div>
+                            `;
+                        });
+                        html += '</div>';
+                        resultContainer.innerHTML = html;
+                        lucide.createIcons(); // Re-render icons after adding new HTML
+                    } catch (e) {
+                        resultContainer.innerHTML = `<p class="text-center text-red-600 font-semibold">Could not understand the AI's response. It might be in an unexpected format. Please try a different prompt.</p>`;
+                        console.error("JSON Parsing Error:", e, "Received Text:", resultText);
+                    }
+                } else {
+                    resultContainer.innerHTML = `<p class="text-center text-red-600 font-semibold">There was an error generating the itinerary. Please check your connection and try again later.</p>`;
+                }
+
+                // Re-enable button
+                itineraryGenBtn.disabled = false;
+                itineraryGenBtn.textContent = 'Generate Itinerary';
+            });
+        }
+
+        // --- Final Initialization ---
+        lucide.createIcons();
+    });
+    </script>
+</body>
+</html>
+

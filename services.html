@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - GoldenHoof Travels</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --deep-green: #013220;
+            --elegant-gold: #D4AF37;
+            --off-white: #F8F8F8;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--off-white);
+            color: #333;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .bg-deep-green { background-color: var(--deep-green); }
+        .text-deep-green { color: var(--deep-green); }
+        .bg-elegant-gold { background-color: var(--elegant-gold); }
+        .text-elegant-gold { color: var(--elegant-gold); }
+        .border-elegant-gold { border-color: var(--elegant-gold); }
+        .bg-off-white { background-color: var(--off-white); }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--elegant-gold);
+            color: var(--deep-green);
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        .cta-button:hover {
+            background-color: var(--deep-green);
+            color: var(--elegant-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(1, 50, 32, 0.3);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+            padding: 4px 8px;
+        }
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--elegant-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link.active, .nav-link:hover {
+            color: var(--elegant-gold);
+        }
+
+        .nav-link.active::after, .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            padding: 2rem;
+            text-align: center;
+        }
+        .service-card:hover {
+            transform: perspective(1000px) translateY(-8px) rotateX(2deg) rotateY(-2deg);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .service-card .plane-trail {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .service-card:hover .plane-trail {
+            display: block;
+            animation: fly-around 3s linear forwards;
+        }
+        @keyframes fly-around {
+            0% { offset-distance: 0%; transform: rotate(0deg); }
+            25% { transform: rotate(0deg); }
+            25.1% { transform: rotate(90deg); }
+            50% { transform: rotate(90deg); }
+            50.1% { transform: rotate(180deg); }
+            75% { transform: rotate(180deg); }
+            75.1% { transform: rotate(270deg); }
+            100% { offset-distance: 100%; transform: rotate(270deg); }
+        }
+    </style>
+</head>
+<body class="bg-off-white">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-deep-green text-white fixed w-full z-50 transition-shadow duration-300 shadow-lg">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+             <a href="index.html">
+                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-12">
+            </a>
+            <nav class="hidden lg:flex items-center space-x-6">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link active">Services</a>
+                <a href="destination.HTML" class="nav-link">Destinations</a>
+                <a href="work-visa.html" class="nav-link">Work & Visa</a>
+                <a href="gallery.HTML" class="nav-link">Gallery</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-deep-green/95 backdrop-blur-sm">
+            <a href="index.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Home</a>
+            <a href="about.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">About Us</a>
+            <a href="services.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Services</a>
+            <a href="destination.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Destinations</a>
+            <a href="work-visa.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Work & Visa</a>
+            <a href="gallery.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Gallery</a>
+            <a href="contact.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Contact</a>
+        </div>
+    </header>
+
+    <main id="main-content" class="pt-24 pb-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-deep-green mb-4">Our Comprehensive Services</h1>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Whether you're planning a dream vacation or a major career move, we provide expert guidance and premium service every step of the way.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1: Custom Tour Packages -->
+                <div class="service-card">
+                    <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
+                    <div class="bg-elegant-gold/10 p-4 rounded-full inline-block mb-4">
+                        <i data-lucide="package-check" class="w-10 h-10 text-elegant-gold"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-deep-green mb-3">Custom Tour Packages</h3>
+                    <p class="text-gray-600">Bespoke itineraries tailored to your unique interests, style, and budget. From solo adventures to family holidays, we craft journeys that create lasting memories.</p>
+                </div>
+                
+                <!-- Service 2: Flight & Hotel Bookings -->
+                <div class="service-card">
+                    <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
+                    <div class="bg-elegant-gold/10 p-4 rounded-full inline-block mb-4">
+                        <i data-lucide="plane-takeoff" class="w-10 h-10 text-elegant-gold"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-deep-green mb-3">Flight & Hotel Bookings</h3>
+                    <p class="text-gray-600">Access exclusive deals and seamless booking for flights and accommodations worldwide. We handle the logistics so you can focus on the excitement of travel.</p>
+                </div>
+
+                <!-- Service 3: Corporate & Luxury Travel -->
+                <div class="service-card">
+                    <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
+                    <div class="bg-elegant-gold/10 p-4 rounded-full inline-block mb-4">
+                        <i data-lucide="concierge-bell" class="w-10 h-10 text-elegant-gold"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-deep-green mb-3">Corporate & Luxury Travel</h3>
+                    <p class="text-gray-600">Premium travel management for executives and discerning travelers. We arrange exclusive access, private transport, and five-star experiences with utmost discretion.</p>
+                </div>
+
+                <!-- Service 4: Visa & Travel Assistance -->
+                <div class="service-card">
+                    <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
+                    <div class="bg-elegant-gold/10 p-4 rounded-full inline-block mb-4">
+                        <i data-lucide="stamp" class="w-10 h-10 text-elegant-gold"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-deep-green mb-3">Visa & Travel Assistance</h3>
+                    <p class="text-gray-600">Navigate complex visa applications and international travel requirements with our expert guidance. We provide up-to-date advice and meticulous documentation support.</p>
+                </div>
+
+                <!-- Service 5: Overseas Employment Services -->
+                <div class="service-card">
+                     <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
+                    <div class="bg-elegant-gold/10 p-4 rounded-full inline-block mb-4">
+                        <i data-lucide="briefcase" class="w-10 h-10 text-elegant-gold"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-deep-green mb-3">Overseas Employment</h3>
+                    <p class="text-gray-600">Connecting skilled professionals with rewarding career opportunities abroad. We partner with reputable employers and manage the entire work visa process for you.</p>
+                </div>
+            </div>
+            
+            <!-- CTA Section -->
+            <div class="mt-20 text-center bg-white p-12 rounded-lg shadow-xl">
+                <h2 class="text-3xl font-bold text-deep-green mb-4">Ready to Start Your Journey?</h2>
+                <p class="text-gray-600 max-w-xl mx-auto mb-8">Contact our experts today for a personalized consultation. Let us handle the details while you prepare for your next great adventure or career milestone.</p>
+                <a href="#" class="cta-button px-10 py-4 text-lg">Contact Us Now</a>
+            </div>
+        </div>
+    </main>
+<button id="scrollToTopBtn" class="fixed bottom-6 right-6 bg-elegant-gold text-deep-green p-3 rounded-full shadow-2xl transition-all duration-300 opacity-0 transform translate-y-4 hover:bg-deep-green hover:text-elegant-gold z-50 focus:outline-none">
+    <i data-lucide="arrow-up" class="h-6 w-6"></i>
+</button>
+    <!-- Footer -->
+    <footer class="bg-deep-green text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <a href="index.html">
+                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-16 mx-auto mb-4">
+            </a>
+            <p class="text-lg text-elegant-gold mb-6">Your Journey, Our Priority</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="facebook"></i></a>
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="instagram"></i></a>
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="twitter"></i></a>
+            </div>
+            <p class="text-gray-400 text-sm">&copy; 2025 GoldenHoof Travels. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // --- Mobile Menu Toggle ---
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        // --- Final Initialization ---
+        lucide.createIcons();
+    });
+// --- Scroll to Top Button Logic ---
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+// Function to check scroll position and toggle button visibility
+function toggleScrollToTopButton() {
+    if (window.scrollY > 400) { // Show button after scrolling 400px down
+        scrollToTopBtn.classList.remove('opacity-0', 'translate-y-4');
+        scrollToTopBtn.classList.add('opacity-100', 'translate-y-0');
+    } else {
+        scrollToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+        scrollToTopBtn.classList.add('opacity-0', 'translate-y-4');
+    }
+}
+
+// Function to handle the scroll action
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Smooth scrolling effect
+    });
+}
+
+// Event Listeners
+if (scrollToTopBtn) {
+    // 1. Listen for scroll events to toggle visibility
+    window.addEventListener('scroll', toggleScrollToTopButton);
+    
+    // 2. Listen for button clicks to scroll to the top
+    scrollToTopBtn.addEventListener('click', scrollToTop);
+    
+    // Initial check on load
+    toggleScrollToTopButton();
+}
+
+    </script>
+</body>
+</html>
+

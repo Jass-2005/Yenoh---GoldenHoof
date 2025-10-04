@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work & Visa - GoldenHoof Travels</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --deep-green: #013220;
+            --elegant-gold: #D4AF37;
+            --off-white: #F8F8F8;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--off-white);
+            color: #333;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .bg-deep-green { background-color: var(--deep-green); }
+        .text-deep-green { color: var(--deep-green); }
+        .bg-elegant-gold { background-color: var(--elegant-gold); }
+        .text-elegant-gold { color: var(--elegant-gold); }
+        .border-elegant-gold { border-color: var(--elegant-gold); }
+        .bg-off-white { background-color: var(--off-white); }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--elegant-gold);
+            color: var(--deep-green);
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        .cta-button:hover {
+            background-color: var(--deep-green);
+            color: var(--elegant-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(1, 50, 32, 0.3);
+        }
+        .cta-button:disabled {
+            background-color: #a0a0a0;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+            padding: 4px 8px;
+        }
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--elegant-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link.active, .nav-link:hover {
+            color: var(--elegant-gold);
+        }
+
+        .nav-link.active::after, .nav-link:hover::after {
+            width: 100%;
+        }
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--elegant-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+        .loader-small {
+            border: 3px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 3px solid var(--elegant-gold);
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-left: 8px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-off-white">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-deep-green text-white fixed w-full z-50 transition-shadow duration-300 shadow-lg">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+             <a href="index.html">
+                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-12">
+            </a>
+            <nav class="hidden lg:flex items-center space-x-6">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="destination.HTML" class="nav-link">Destinations</a>
+                <a href="work-visa.html" class="nav-link active">Work & Visa</a>
+                <a href="gallery.HTML" class="nav-link">Gallery</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-deep-green/95 backdrop-blur-sm">
+            <a href="index.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Home</a>
+            <a href="about.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">About Us</a>
+            <a href="services.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Services</a>
+            <a href="destination.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Destinations</a>
+            <a href="work-visa.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Work & Visa</a>
+            <a href="gallery.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Gallery</a>
+            <a href="contact.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Contact</a>
+        </div>
+    </header>
+
+    <main id="main-content" class="pt-24 pb-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-deep-green mb-4">International Career Opportunities</h1>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Explore rewarding employment opportunities with our trusted partners overseas. We provide comprehensive visa and documentation support to start your new career.</p>
+            </div>
+
+            <!-- Job Opportunities Sections -->
+            <div class="space-y-16">
+                <!-- Dubai Section -->
+                <section id="dubai-jobs" class="bg-white p-8 md:p-12 rounded-lg shadow-2xl">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h2 class="text-3xl font-bold text-deep-green mb-2">We're Hiring: Jobs in Dubai</h2>
+                            <p class="text-gray-600 mb-6">Excellent opportunities for skilled tradespeople. Visa provided within 5 days.</p>
+                            <ul class="grid grid-cols-2 gap-x-8 gap-y-2 text-gray-700">
+                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>Mason</li>
+                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>Electrician</li>
+                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>Plumber</li>
+                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>Wall Painter</li>
+                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>Carpenter</li>
+                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>Gypsum Helper</li>
+                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>Pipe Fitter</li>
+                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>General Helper</li>
+                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>Steel Fixer</li>
+                            </ul>
+                            <div class="mt-6 border-t pt-4">
+                                <p><strong>Duty:</strong> 9 hours + Overtime, Monthly 26 Days</p>
+                            </div>
+                        </div>
+                        <div class="p-4 border-2 border-dashed border-elegant-gold rounded-lg bg-gray-50">
+                            <h3 class="text-xl font-bold text-deep-green text-center mb-4">✨ AI Cover Letter Helper</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="name-dubai" class="font-medium text-sm text-gray-700">Your Full Name</label>
+                                    <input type="text" id="name-dubai" class="form-input mt-1" placeholder="Enter your name">
+                                </div>
+                                <div>
+                                    <label for="job-select-dubai" class="font-medium text-sm text-gray-700">Select a Position</label>
+                                    <select id="job-select-dubai" class="form-input mt-1">
+                                        <option>Mason</option><option>Electrician</option><option>Plumber</option><option>Wall Painter</option><option>Carpenter</option><option>Gypsum Helper</option><option>Pipe Fitter</option><option>General Helper</option><option>Steel Fixer</option>
+                                    </select>
+                                </div>
+                                <button id="generate-letter-dubai" class="w-full cta-button py-2.5">Generate Intro</button>
+                                <div id="result-dubai" class="hidden mt-4 p-4 bg-gray-100 rounded-md text-sm text-gray-800 border border-gray-200"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Belarus Section -->
+                <section id="belarus-jobs" class="bg-white p-8 md:p-12 rounded-lg shadow-2xl">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                             <h2 class="text-3xl font-bold text-deep-green mb-2">Employment Visa: Belarus, Europe</h2>
+                            <p class="text-gray-600 mb-6">Great opportunity for carpenters and construction workers. ECR/ECNR both accepted.</p>
+                             <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Finishing Carpenter: $650 + Free Food + OT</li>
+                                <li class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>PVC Worker: $650 + Free Food + OT</li>
+                                <li class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Electrician: $650 + Free Food + OT</li>
+                                <li class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Mason: $650 + Free Food + OT</li>
+                            </ul>
+                             <div class="mt-6 border-t pt-4 space-y-2">
+                                <p><strong>Duty:</strong> 10 hours + OT applicable</p>
+                                <p><strong>Provided by Company:</strong> Accommodation, Medical & Transportation</p>
+                                <p><strong>Candidate Pays:</strong> Embassy Fees & Insurance</p>
+                                <p><strong>Requirement:</strong> Age 24-37, Working Video</p>
+                            </div>
+                        </div>
+                        <div class="p-4 border-2 border-dashed border-elegant-gold rounded-lg bg-gray-50">
+                            <h3 class="text-xl font-bold text-deep-green text-center mb-4">✨ AI Cover Letter Helper</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="name-belarus" class="font-medium text-sm text-gray-700">Your Full Name</label>
+                                    <input type="text" id="name-belarus" class="form-input mt-1" placeholder="Enter your name">
+                                </div>
+                                <div>
+                                    <label for="job-select-belarus" class="font-medium text-sm text-gray-700">Select a Position</label>
+                                    <select id="job-select-belarus" class="form-input mt-1">
+                                        <option>Finishing Carpenter</option><option>PVC Worker</option><option>Electrician</option><option>Mason</option>
+                                    </select>
+                                </div>
+                                <button id="generate-letter-belarus" class="w-full cta-button py-2.5">Generate Intro</button>
+                                <div id="result-belarus" class="hidden mt-4 p-4 bg-gray-100 rounded-md text-sm text-gray-800 border border-gray-200"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+<button id="scrollToTopBtn" class="fixed bottom-6 right-6 bg-elegant-gold text-deep-green p-3 rounded-full shadow-2xl transition-all duration-300 opacity-0 transform translate-y-4 hover:bg-deep-green hover:text-elegant-gold z-50 focus:outline-none">
+    <i data-lucide="arrow-up" class="h-6 w-6"></i>
+</button>
+    <!-- Footer -->
+    <footer class="bg-deep-green text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <a href="index.html">
+                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-16 mx-auto mb-4">
+            </a>
+            <p class="text-lg text-elegant-gold mb-6">Your Journey, Our Priority</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="facebook"></i></a>
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="instagram"></i></a>
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="twitter"></i></a>
+            </div>
+            <p class="text-gray-400 text-sm">&copy; 2025 GoldenHoof Travels. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // --- Mobile Menu Toggle ---
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        // --- Gemini API Call Function ---
+        async function callGeminiAPI(payload, retryCount = 0) {
+            const apiKey = ""; // Left empty as per instructions
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+            const maxRetries = 3;
+            const backoffDelay = 1000 * Math.pow(2, retryCount);
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    if (response.status === 429 && retryCount < maxRetries) {
+                        await new Promise(resolve => setTimeout(resolve, backoffDelay));
+                        return callGeminiAPI(payload, retryCount + 1);
+                    }
+                    const errorBody = await response.text();
+                    throw new Error(`API Error: ${response.status} ${errorBody}`);
+                }
+                const result = await response.json();
+                return result.candidates?.[0]?.content?.parts?.[0]?.text;
+            } catch (error) {
+                console.error("Gemini API call failed:", error);
+                return null;
+            }
+        }
+
+        // --- Cover Letter AI Helper Logic ---
+        function setupCoverLetterGenerator(section) {
+            const generateBtn = document.getElementById(`generate-letter-${section}`);
+            const nameInput = document.getElementById(`name-${section}`);
+            const jobSelect = document.getElementById(`job-select-${section}`);
+            const resultDiv = document.getElementById(`result-${section}`);
+
+            if (!generateBtn) return;
+
+            generateBtn.addEventListener('click', async () => {
+                const name = nameInput.value;
+                const jobTitle = jobSelect.value;
+
+                if (!name.trim()) {
+                    alert('Please enter your name.');
+                    return;
+                }
+
+                const originalBtnText = generateBtn.innerHTML;
+                generateBtn.innerHTML = `Generating... <span class="loader-small"></span>`;
+                generateBtn.disabled = true;
+                resultDiv.classList.add('hidden');
+
+                const location = section === 'dubai' ? 'Dubai' : 'Belarus, Europe';
+                const prompt = `Write a professional, single-paragraph introduction for a cover letter. My name is ${name}, and I am applying for the ${jobTitle} position in ${location} that I saw advertised by GoldenHoof Travels. Mention my keen interest and relevant skills for this trade. Keep it concise and impactful.`;
+                
+                const payload = { contents: [{ parts: [{ text: prompt }] }] };
+                const resultText = await callGeminiAPI(payload);
+
+                if (resultText) {
+                    resultDiv.textContent = resultText;
+                    resultDiv.classList.remove('hidden');
+                } else {
+                    resultDiv.textContent = 'Sorry, there was an error generating the text. Please try again.';
+                    resultDiv.classList.remove('hidden');
+                }
+                
+                generateBtn.innerHTML = originalBtnText;
+                generateBtn.disabled = false;
+            });
+        }
+
+        setupCoverLetterGenerator('dubai');
+        setupCoverLetterGenerator('belarus');
+
+        // --- Final Initialization ---
+        lucide.createIcons();
+    });
+// --- Scroll to Top Button Logic ---
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+// Function to check scroll position and toggle button visibility
+function toggleScrollToTopButton() {
+    if (window.scrollY > 400) { // Show button after scrolling 400px down
+        scrollToTopBtn.classList.remove('opacity-0', 'translate-y-4');
+        scrollToTopBtn.classList.add('opacity-100', 'translate-y-0');
+    } else {
+        scrollToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+        scrollToTopBtn.classList.add('opacity-0', 'translate-y-4');
+    }
+}
+
+// Function to handle the scroll action
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Smooth scrolling effect
+    });
+}
+
+// Event Listeners
+if (scrollToTopBtn) {
+    // 1. Listen for scroll events to toggle visibility
+    window.addEventListener('scroll', toggleScrollToTopButton);
+    
+    // 2. Listen for button clicks to scroll to the top
+    scrollToTopBtn.addEventListener('click', scrollToTop);
+    
+    // Initial check on load
+    toggleScrollToTopButton();
+}
+
+    </script>
+</body>
+</html>
+

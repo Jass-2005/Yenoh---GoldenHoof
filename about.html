@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - GoldenHoof Travels</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --deep-green: #013220;
+            --elegant-gold: #D4AF37;
+            --off-white: #F8F8F8;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--off-white);
+            color: #333;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .bg-deep-green { background-color: var(--deep-green); }
+        .text-deep-green { color: var(--deep-green); }
+        .bg-elegant-gold { background-color: var(--elegant-gold); }
+        .text-elegant-gold { color: var(--elegant-gold); }
+        .border-elegant-gold { border-color: var(--elegant-gold); }
+        .bg-off-white { background-color: var(--off-white); }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--elegant-gold);
+            color: var(--deep-green);
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        .cta-button:hover {
+            background-color: var(--deep-green);
+            color: var(--elegant-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(1, 50, 32, 0.3);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+            padding: 4px 8px;
+        }
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--elegant-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link.active, .nav-link:hover {
+            color: var(--elegant-gold);
+        }
+
+        .nav-link.active::after, .nav-link.hover::after {
+            width: 100%;
+        }
+
+        .team-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        }
+    </style>
+</head>
+<body class="bg-off-white">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-deep-green text-white fixed w-full z-50 transition-shadow duration-300 shadow-lg">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+             <a href="index.html">
+                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-12">
+            </a>
+            <nav class="hidden lg:flex items-center space-x-6">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="ai-planner.html" class="nav-link">✨ AI Planner</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="destination.HTML" class="nav-link">Destinations</a>
+                <a href="work-visa.html" class="nav-link">Work & Visa</a>
+                <a href="gallery.HTML" class="nav-link">Gallery</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-deep-green/95 backdrop-blur-sm">
+             <a href="index.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Home</a>
+            <a href="about.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">About Us</a>
+            <a href="services.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Services</a>
+            <a href="destination.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Destinations</a>
+            <a href="work-visa.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Work & Visa</a>
+            <a href="gallery.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Gallery</a>
+            <a href="contact.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Contact</a>
+        </div>
+    </header>
+
+    <main id="main-content" class="pt-24 pb-20">
+        <!-- Hero Section -->
+        <section class="bg-white">
+            <div class="container mx-auto px-6 py-16 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-deep-green mb-4">Crafting Journeys, Building Futures</h1>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">GoldenHoof Travels was born from a passion for exploration and a commitment to providing unparalleled service. We believe travel is more than just visiting a new place; it's about creating opportunities and unforgettable experiences.</p>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="rounded-lg overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="A team of travel agents collaborating." class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold text-deep-green mb-4">Our Story</h2>
+                        <p class="text-gray-600 mb-4">Founded in Amritsar with a vision to redefine travel, GoldenHoof Travels started as a boutique agency dedicated to curating luxury vacations. Our dedication to personalized service and meticulous planning quickly earned us a reputation for excellence.</p>
+                        <p class="text-gray-600">As we grew, we saw an opportunity to expand our mission. We realized that a journey could also be a path to a new career. Today, we are proud to be a trusted partner for both discerning travelers and ambitious professionals seeking international employment, guiding every client with the same level of care and expertise.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Values Section -->
+        <section class="bg-white py-20">
+             <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-deep-green mb-12">The Pillars of Our Promise</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="flex flex-col items-center">
+                        <div class="bg-elegant-gold/10 p-5 rounded-full mb-4">
+                            <i data-lucide="gem" class="w-10 h-10 text-elegant-gold"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-deep-green mb-2">Luxury & Quality</h3>
+                        <p class="text-gray-600">We believe in providing a premium experience in everything we do, from five-star holidays to first-class career support.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                         <div class="bg-elegant-gold/10 p-5 rounded-full mb-4">
+                            <i data-lucide="shield-check" class="w-10 h-10 text-elegant-gold"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-deep-green mb-2">Trust & Transparency</h3>
+                        <p class="text-gray-600">Our relationship with clients is built on honesty. We provide clear, straightforward guidance you can depend on.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                         <div class="bg-elegant-gold/10 p-5 rounded-full mb-4">
+                            <i data-lucide="globe" class="w-10 h-10 text-elegant-gold"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-deep-green mb-2">Global Opportunity</h3>
+                        <p class="text-gray-600">We open doors to the world, whether for a week-long escape or a life-changing career move abroad.</p>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <!-- Meet the Team Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-deep-green mb-4">Meet Our Experts</h2>
+                    <p class="text-gray-600 text-lg max-w-2xl mx-auto">Our dedicated team is our greatest asset. Get to know the professionals committed to your success.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Team Member 1 -->
+                    <div class="team-card bg-white rounded-lg shadow-lg overflow-hidden text-center">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1887&auto=format&fit=crop" alt="Founder Portrait" class="w-full h-64 object-cover object-center">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-deep-green">Amrit Singh</h3>
+                            <p class="text-elegant-gold mb-2">Founder & CEO</p>
+                            <p class="text-gray-600 text-sm">With over a decade of experience, Amrit leads the company with a vision for excellence and a passion for creating opportunities.</p>
+                        </div>
+                    </div>
+                    <!-- Team Member 2 -->
+                     <div class="team-card bg-white rounded-lg shadow-lg overflow-hidden text-center">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop" alt="Travel Specialist Portrait" class="w-full h-64 object-cover object-center">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-deep-green">Priya Sharma</h3>
+                            <p class="text-elegant-gold mb-2">Head of Luxury Travel</p>
+                            <p class="text-gray-600 text-sm">Priya is an expert in curating bespoke travel experiences, ensuring every detail of your journey is flawless.</p>
+                        </div>
+                    </div>
+                    <!-- Team Member 3 -->
+                    <div class="team-card bg-white rounded-lg shadow-lg overflow-hidden text-center">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop" alt="Visa Consultant Portrait" class="w-full h-64 object-cover object-center">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-deep-green">Raj Kumar</h3>
+                            <p class="text-elegant-gold mb-2">Visa & Employment Specialist</p>
+                            <p class="text-gray-600 text-sm">Raj expertly navigates the complexities of international visas and employment to ensure a smooth process for our clients.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+<button id="scrollToTopBtn" class="fixed bottom-6 right-6 bg-elegant-gold text-deep-green p-3 rounded-full shadow-2xl transition-all duration-300 opacity-0 transform translate-y-4 hover:bg-deep-green hover:text-elegant-gold z-50 focus:outline-none">
+    <i data-lucide="arrow-up" class="h-6 w-6"></i>
+</button>
+    <!-- Footer -->
+    <footer class="bg-deep-green text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <a href="index.html">
+                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-16 mx-auto mb-4">
+            </a>
+            <p class="text-lg text-elegant-gold mb-6">Your Journey, Our Priority</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="facebook"></i></a>
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="instagram"></i></a>
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="twitter"></i></a>
+            </div>
+            <p class="text-gray-400 text-sm">&copy; 2025 GoldenHoof Travels. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // --- Mobile Menu Toggle ---
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        // --- Final Initialization ---
+        lucide.createIcons();
+    });
+
+// --- Scroll to Top Button Logic ---
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+// Function to check scroll position and toggle button visibility
+function toggleScrollToTopButton() {
+    if (window.scrollY > 400) { // Show button after scrolling 400px down
+        scrollToTopBtn.classList.remove('opacity-0', 'translate-y-4');
+        scrollToTopBtn.classList.add('opacity-100', 'translate-y-0');
+    } else {
+        scrollToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+        scrollToTopBtn.classList.add('opacity-0', 'translate-y-4');
+    }
+}
+
+// Function to handle the scroll action
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Smooth scrolling effect
+    });
+}
+
+// Event Listeners
+if (scrollToTopBtn) {
+    // 1. Listen for scroll events to toggle visibility
+    window.addEventListener('scroll', toggleScrollToTopButton);
+    
+    // 2. Listen for button clicks to scroll to the top
+    scrollToTopBtn.addEventListener('click', scrollToTop);
+    
+    // Initial check on load
+    toggleScrollToTopButton();
+}
+
+
+    </script>
+</body>
+</html>
+
