@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - GoldenHoof Travels</title>
+    <title>Destinations - GoldenHoof Travels</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,12 +17,10 @@
         
     <!-- Custom Styles -->
     <style>
-/* In your CSS media query block */
-.active-menu-link {
+        .active-menu-link {
     color: #D4AF37 !important; /* The !important is crucial for overriding utilities */
     /* ... other styles */
 }
-
         :root {
             --deep-green: #013220;
             --elegant-gold: #D4AF37;
@@ -93,46 +91,19 @@
             width: 100%;
         }
 
-        .service-card {
-            position: relative;
-            overflow: hidden;
-            background-color: white;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            padding: 2rem;
-            text-align: center;
+        .destination-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .service-card:hover {
-            transform: perspective(1000px) translateY(-8px) rotateX(2deg) rotateY(-2deg);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
         }
-        .service-card .plane-trail {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
+        .destination-card img {
+            transition: transform 0.3s ease;
         }
-        .service-card:hover .plane-trail {
-            display: block;
-            animation: fly-around 3s linear forwards;
+        .destination-card:hover img {
+            transform: scale(1.05);
         }
-        @keyframes fly-around {
-            0% { offset-distance: 0%; transform: rotate(0deg); }
-            25% { transform: rotate(0deg); }
-            25.1% { transform: rotate(90deg); }
-            50% { transform: rotate(90deg); }
-            50.1% { transform: rotate(180deg); }
-            75% { transform: rotate(180deg); }
-            75.1% { transform: rotate(270deg); }
-            100% { offset-distance: 100%; transform: rotate(270deg); }
-        }
-
-
-     
     </style>
 </head>
 <body class="bg-off-white">
@@ -140,7 +111,7 @@
     <!-- Header & Navigation -->
     <header id="header" class="bg-deep-green text-white fixed w-full z-50 transition-shadow duration-300 shadow-lg">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-             <a href="index.html" class="flex items-center space-x-3">
+            <a href="index.html" class="flex items-center space-x-3">
     <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-12">
     
     <div class="flex flex-col sm:flex-row sm:space-x-1">
@@ -157,11 +128,11 @@
 </a>
             <nav class="hidden lg:flex items-center space-x-6">
                 <a href="index.html" class="nav-link">Home</a>
-                <a href="services.html" class="nav-link active">Services</a>
+                <a href="services.html" class="nav-link">Services</a>
                 <a href="work-visa.html" class="nav-link">Work & Visa</a>
-                <a href="destination.HTML" class="nav-link">Destinations</a>
+                <a href="destination.HTML" class="nav-link active">Destinations</a>
                 <a href="gallery.HTML" class="nav-link">Gallery</a>
-               
+                
                 <a href="about.html" class="nav-link">About Us</a>
                 <a href="contact.html" class="nav-link">Contact Us</a>
             </nav>
@@ -173,85 +144,103 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden lg:hidden bg-deep-green/95 backdrop-blur-sm">
-    <a href="index.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Home</a>
-    <a href="services.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Services</a>
-    <a href="work-visa.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Work & Visa</a>
-    <a href="destination.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Destinations</a>
-    <a href="gallery.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Gallery</a>
-    <a href="about.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">About Us</a>
-    <a href="contact.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Contact Us</a>
-</div>
+             <a href="index.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Home</a>
+            <a href="services.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Services</a>
+            <a href="work-visa.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Work & Visa</a>
+            <a href="destination.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Destinations</a>
+            <a href="gallery.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Gallery</a>
+            
+             <a href="about.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">About Us</a>
+            <a href="contact.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Contact Us</a>
+        </div>
     </header>
 
     <main id="main-content" class="pt-24 pb-20">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
-                <h1 class="text-4xl md:text-5xl font-bold text-deep-green mb-4">Our Comprehensive Services</h1>
-                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Whether you're planning a dream vacation or a major career move, we provide expert guidance and premium service every step of the way.</p>
+                <h1 class="text-4xl md:text-5xl font-bold text-deep-green mb-4">Featured Destinations</h1>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Discover the world with our curated selection of breathtaking locations. Each destination is chosen for its unique culture, beauty, and potential for unforgettable memories.</p>
             </div>
-            
+
+            <!-- Destinations Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- Service 5: Overseas Employment Services -->
-                <div class="service-card">
-                     <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
-                    <div class="bg-elegant-gold/10 p-4 rounded-full inline-block mb-4">
-                        <i data-lucide="briefcase" class="w-10 h-10 text-elegant-gold"></i>
+                  <!-- Destination Card 4: Dubai -->
+                <div class="destination-card bg-white rounded-lg shadow-lg overflow-hidden">
+                     <div class="overflow-hidden h-64">
+                        <img src="Dubai.jpg" alt="Dubai skyline with Burj Khalifa" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-2xl font-bold text-deep-green mb-3">Overseas Employment</h3>
-                    <p class="text-gray-600">Connecting skilled professionals with rewarding career opportunities abroad. We partner with reputable employers and manage the entire work visa process for you.</p>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-deep-green mb-2">Dubai, UAE</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Unlock a world of opportunity in Dubai — where ambition meets innovation. Secure your Dubai work visa and step into a future filled with growth and success</p>
+                        <a href="contact.html" class="text-elegant-gold font-bold hover:underline">Inquire Now &rarr;</a>
+                    </div>
                 </div>
 
-                <!-- Service 4: Visa & Travel Assistance -->
-                 <div class="service-card">
-                    <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
-                    <div class="bg-elegant-gold/10 p-4 rounded-full inline-block mb-4">
-                        <i data-lucide="stamp" class="w-10 h-10 text-elegant-gold"></i>
+
+                <!-- Destination Card 1: Paris -->
+                <div class="destination-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="overflow-hidden h-64">
+                        <img src="aus.jpg" alt="Eiffel Tower in Paris" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-2xl font-bold text-deep-green mb-3">Visa & Travel Assistance</h3>
-                    <p class="text-gray-600">Navigate complex visa applications and international travel requirements with our expert guidance. We provide up-to-date advice and meticulous documentation support.</p>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-deep-green mb-2">Australia</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Step into new horizons with Australia’s thriving job market. Secure your Australian work permit and build a rewarding career in a land full of possibilities.</p>
+                        <a href="contact.html" class="text-elegant-gold font-bold hover:underline">Inquire Now &rarr;</a>
+                    </div>
                 </div>
 
-                <!-- Service 1: Custom Tour Packages -->
-                <div class="service-card">
-                    <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
-                    <div class="bg-elegant-gold/10 p-4 rounded-full inline-block mb-4">
-                        <i data-lucide="package-check" class="w-10 h-10 text-elegant-gold"></i>
+                <!-- Destination Card 2: Kyoto -->
+                <div class="destination-card bg-white rounded-lg shadow-lg overflow-hidden">
+                     <div class="overflow-hidden h-64">
+                        <img src="moscow.jpg" alt="Temples in Kyoto, Japan" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-2xl font-bold text-deep-green mb-3">Custom Tour Packages</h3>
-                    <p class="text-gray-600">Bespoke itineraries tailored to your unique interests, style, and budget. From solo adventures to family holidays, we craft journeys that create lasting memories.</p>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-deep-green mb-2">Russia</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Build your global career in Russia — a land of expanding industries and skilled workforce demand. Begin your journey with a reliable work visa process tailored for you.</p>
+                        <a href="contact.html" class="text-elegant-gold font-bold hover:underline">Inquire Now &rarr;</a>
+                    </div>
                 </div>
+
+                <!-- Destination Card 3: Santorini -->
+                <div class="destination-card bg-white rounded-lg shadow-lg overflow-hidden">
+                     <div class="overflow-hidden h-64">
+                        <img src="schenegen.jpg">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-deep-green mb-2">Schengen Countries</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Work and grow across Europe with a Schengen work visa. Experience a diverse culture, strong economy, and endless professional opportunities — all with one visa.</p>
+                        <a href="contact.html" class="text-elegant-gold font-bold hover:underline">Inquire Now &rarr;</a>
+                    </div>
+                </div>
+
+              
+
+                <!-- Destination Card 5: Amalfi Coast -->
+                <div class="destination-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="overflow-hidden h-64">
+                        <img src="singapore.jpg" alt="Colorful houses on the Amalfi Coast, Italy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-deep-green mb-2">Singapore</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Shape your future in Singapore — Asia’s innovation hub. Apply for your Singapore work visa and take your career to one of the world’s most advanced economies.</p>
+                        <a href="contact.html" class="text-elegant-gold font-bold hover:underline">Inquire Now &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Destination Card 6: Bali -->
+                 <div class="destination-card bg-white rounded-lg shadow-lg overflow-hidden">
+                     <div class="overflow-hidden h-64">
+                        <img src="canada.png" alt="An ancient temple in Bali, Indonesia" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-deep-green mb-2">Canada</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Start your international career in Canada, a country known for its stability, growth, and quality of life. Let us guide you through a smooth and transparent work visa process.</p>
+                        <a href="contact.html" class="text-elegant-gold font-bold hover:underline">Inquire Now &rarr;</a>
+                    </div>
+                </div>
+
                 
-                <!-- Service 2: Flight & Hotel Bookings -->
-                <div class="service-card">
-                    <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
-                    <div class="bg-elegant-gold/10 p-4 rounded-full inline-block mb-4">
-                        <i data-lucide="plane-takeoff" class="w-10 h-10 text-elegant-gold"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-deep-green mb-3">Flight & Hotel Bookings</h3>
-                    <p class="text-gray-600">Access exclusive deals and seamless booking for flights and accommodations worldwide. We handle the logistics so you can focus on the excitement of travel.</p>
-                </div>
-
-                <!-- Service 3: Corporate & Luxury Travel -->
-                <div class="service-card">
-                    <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
-                    <div class="bg-elegant-gold/10 p-4 rounded-full inline-block mb-4">
-                        <i data-lucide="concierge-bell" class="w-10 h-10 text-elegant-gold"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-deep-green mb-3">Corporate & Luxury Travel</h3>
-                    <p class="text-gray-600">Premium travel management for executives and discerning travelers. We arrange exclusive access, private transport, and five-star experiences with utmost discretion.</p>
-                </div>
-
-               
-
-                
-            </div>
-            
-            <!-- CTA Section -->
-            <div class="mt-20 text-center bg-white p-12 rounded-lg shadow-xl">
-                <h2 class="text-3xl font-bold text-deep-green mb-4">Ready to Start Your Journey?</h2>
-                <p class="text-gray-600 max-w-xl mx-auto mb-8">Contact our experts today for a personalized consultation. Let us handle the details while you prepare for your next great adventure or career milestone.</p>
-                <a href="#" class="cta-button px-10 py-4 text-lg">Contact Us Now</a>
             </div>
         </div>
     </main>
@@ -290,6 +279,7 @@
         // --- Final Initialization ---
         lucide.createIcons();
     });
+
 // --- Scroll to Top Button Logic ---
 const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
@@ -325,30 +315,7 @@ if (scrollToTopBtn) {
 }
 
     </script>
-
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get the current page's filename (e.g., 'index.html', 'services.html')
-        const currentPath = window.location.pathname.split('/').pop().toLowerCase() || 'index.html';
-        
-        // Select all the links in the mobile menu
-        const menuLinks = document.querySelectorAll('#mobile-menu a');
-        
-        menuLinks.forEach(link => {
-            const linkPath = link.getAttribute('href').toLowerCase();
-            
-            // Check if the link's href matches the current page's path
-            if (linkPath === currentPath) {
-                // Add the custom active classes
-                link.classList.add('active-menu-link', 'animate-underline');
-                
-                // Remove conflicting Tailwind classes to let the custom CSS control the color/style
-                link.classList.remove('text-white', 'hover:bg-elegant-gold', 'hover:text-deep-green');
-            }
-        });
-    });
-</script>
-<script>
     document.addEventListener('DOMContentLoaded', function() {
         // Get the current page's filename (e.g., 'index.html', 'services.html')
         const currentPath = window.location.pathname.split('/').pop().toLowerCase() || 'index.html';
@@ -372,4 +339,3 @@ if (scrollToTopBtn) {
 </script>
 </body>
 </html>
-

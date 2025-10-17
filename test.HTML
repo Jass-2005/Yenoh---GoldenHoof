@@ -1,296 +1,721 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoldenHoof Travels - Your Journey, Our Priority</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Custom Styles -->
-    <style>
-        :root {
-            --deep-green: #013220;
-            --elegant-gold: #D4AF37;
-            --off-white: #F8F8F8;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--deep-green);
-            color: #333;
-            overflow-x: hidden;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .bg-deep-green { background-color: var(--deep-green); }
-        .text-deep-green { color: var(--deep-green); }
-        .bg-elegant-gold { background-color: var(--elegant-gold); }
-        .text-elegant-gold { color: var(--elegant-gold); }
-        .border-elegant-gold { border-color: var(--elegant-gold); }
-        .bg-off-white { background-color: var(--off-white); }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoldenHoof Travels - Your Journey, Our Priority</title>
+    
+        <script src="https://cdn.tailwindcss.com"></script>
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+        <style>
+/* In your CSS media query block */
+.active-menu-link {
+    color: #D4AF37 !important; /* The !important is crucial for overriding utilities */
+    /* ... other styles */
+}
 
-        .cta-button {
-            display: inline-block;
-            background-color: var(--elegant-gold);
-            color: var(--deep-green);
-            font-weight: 700;
-            padding: 0.85rem 2.5rem;
-            border-radius: 9999px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-        }
-        .cta-button:hover {
-            background-color: #fff;
-            color: var(--deep-green);
-            transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(255, 255, 255, 0.2);
-        }
+        :root {
+            --deep-green: #013220;
+            --elegant-gold: #D4AF37;
+            --off-white: #F8F8F8;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+           
+            overflow-x: hidden; /* Prevent horizontal scrollbars from animations */
+        }
 
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease, transform 0.3s ease;
-            padding: 4px 8px;
-        }
-        .nav-link:hover {
-            transform: translateY(-2px);
-        }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--elegant-gold);
-            transition: width 0.3s ease;
-        }
 
-        .nav-link.active, .nav-link:hover {
-            color: var(--elegant-gold);
-        }
 
-        .nav-link.active::after, .nav-link.hover::after {
-            width: 100%;
-        }
-        
-        #globe-container {
-            width: 100%;
-            height: 100%;
-            min-height: 400px;
-        }
-    </style>
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Replicating Tailwind color classes to ensure they work */
+        .bg-deep-green { background-color: var(--deep-green); }
+        .text-deep-green { color: var(--deep-green); }
+        .bg-elegant-gold { background-color: var(--elegant-gold); }
+        .text-elegant-gold { color: var(--elegant-gold); }
+        .border-elegant-gold { border-color: var(--elegant-gold); }
+        .bg-off-white { background-color: var(--off-white); }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--elegant-gold);
+            color: var(--deep-green);
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+           
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            animation: pulse-shadow 2.5s infinite;
+        }
+        .cta-button:hover {
+            background-color: var(--deep-green);
+            color: var(--elegant-gold);
+            transform: translateY(-6px);
+            box-shadow: 0 7px 20px rgba(1, 50, 32, 0.3);
+            animation: none;
+            transition: transform 0.3s ease-in-out, box-shadow 0.2s ease;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+            padding: 4px 8px;
+        }
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--elegant-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link.active, .nav-link:hover {
+            color: var(--elegant-gold);
+        }
+
+        .nav-link.active::after, .nav-link:hover::after {
+            width: 100%;
+        }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 3. HERO SECTION (WITH ORIGINAL BACKGROUND IMAGE) */
+.hero-section {
+  position: relative;
+  height: calc(100vh - 4rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  /* ORIGINAL BACKGROUND IMAGE IS HERE */
+  background-image: url('labour-burden-in-construction.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Dark overlay for better readability */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* black shade with 50% opacity */
+  z-index: 1;
+  /* ANIMATION: Fade-in for the overlay */
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0; /* Start invisible for animation */
+}
+
+/* 4. HERO CONTENT & TEXT ANIMATIONS */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  /* ANIMATION: Fades up after 0.5s */
+  animation: fadeInUp 0.8s ease-out 0.5s forwards;
+  opacity: 0; /* Start invisible for animation */
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  margin-bottom: 2rem;
+  /* ANIMATION: Fades up after 0.8s */
+  animation: fadeInUp 0.8s ease-out 0.8s forwards;
+  opacity: 0; /* Start invisible for animation */
+}
+
+/* 5. BUTTONS AND ANIMATIONS */
+
+/* Buttons Container */
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  /* ANIMATION: Pops in after 1.2s */
+  animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 1.2s forwards; 
+  opacity: 0; /* Start invisible for animation */
+}
+
+/* Base Button Style (with smooth hover transition) */
+.cta-buttons .btn {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  /* SMOOTH HOVER TRANSITION */
+  transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Primary button (Gold) */
+.primary-btn {
+  background-color: #d4af37; 
+  color: black;
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+.primary-btn:hover {
+  background-color: #b8972a;
+  /* LIFT EFFECT */
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
+}
+
+/* Secondary button (Outline) */
+.secondary-btn {
+  background-color: transparent;
+  color: #d4af37; 
+  border: 2px solid #d4af37;
+}
+
+.secondary-btn:hover {
+  background-color: #d4af37;
+  color: black;
+  /* SCALE EFFECT */
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Responsive for small screens */
+@media (min-width: 640px) {
+  .cta-buttons {
+    flex-direction: row;
+  }
+
+  
+        #globe-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.7;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-hover-effect {
+            position: relative; /* Needed for the plane animation */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden; /* Hide the plane when not animating */
+        }
+        .card-hover-effect:hover {
+            transform: perspective(1000px) translateY(-8px) rotateX(2deg) rotateY(-2deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        /* Plane animation on card hover */
+        .card-hover-effect .plane-trail {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .card-hover-effect:hover .plane-trail {
+            display: block;
+            animation: fly-around 3s linear forwards;
+        }
+
+        @keyframes fly-around {
+            0% { offset-distance: 0%; transform: rotate(0deg); }
+            25% { transform: rotate(0deg); }
+            25.1% { transform: rotate(90deg); }
+            50% { transform: rotate(90deg); }
+            50.1% { transform: rotate(180deg); }
+            75% { transform: rotate(180deg); }
+            75.1% { transform: rotate(270deg); }
+            100% { offset-distance: 100%; transform: rotate(270deg); }
+        }
+
+        /* Scroll-triggered Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .slide-in-up { transform: translateY(40px); }
+        .slide-in-left { transform: translateX(-40px); }
+        .slide-in-right { transform: translateX(40px); }
+
+        .is-visible {
+            opacity: 1;
+            transform: translateY(0) translateX(0);
+        }
+
+        @keyframes pulse-shadow {
+            0% { box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
+            50% { box-shadow: 0 4px 25px rgba(212, 175, 55, 0.5); }
+            100% { box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
+        }
+
+
+
+  
+
+    </style>
 </head>
-<body class="bg-deep-green">
+<body class="bg-off-white">
 
-    <!-- Header & Navigation -->
-    <header id="header" class="bg-deep-green text-white fixed w-full z-50 transition-shadow duration-300">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-             <a href="index.html">
-                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-12">
-            </a>
-            <nav class="hidden lg:flex items-center space-x-6">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="about.html" class="nav-link">About Us</a>
-                <a href="services.html" class="nav-link">Services</a>
-                <a href="destination.HTML" class="nav-link">Destinations</a>
-                <a href="work-visa.html" class="nav-link">Work & Visa</a>
-                <a href="gallery.HTML" class="nav-link">Gallery</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-            </nav>
-            <div class="lg:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none">
-                    <i data-lucide="menu" class="h-6 w-6"></i>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-deep-green/95 backdrop-blur-sm">
-             <a href="index.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Home</a>
-            <a href="about.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">About Us</a>
-            <a href="services.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Services</a>
-            <a href="destination.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Destinations</a>
-            <a href="work-visa.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Work & Visa</a>
-            <a href="gallery.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Gallery</a>
-            <a href="contact.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Contact</a>
-        </div>
-    </header>
+        <header id="header" class="bg-deep-green text-white fixed w-full z-50 transition-shadow duration-300 shadow-lg">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-12">
+                                <h1 class="text-xl font-bold text-elegant-gold uppercase tracking-widest hidden sm:block">
+                    GoldenHoof Travels
+                </h1>
+            </a>
+            <nav class="hidden lg:flex items-center space-x-6">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="work-visa.html" class="nav-link">Work & Visa</a>
+                <a href="destination.HTML" class="nav-link">Destinations</a>
+                <a href="GALLERY.HTML" class="nav-link">Gallery</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </nav>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+             <div id="mobile-menu" class="hidden lg:hidden bg-deep-green/95 backdrop-blur-sm">
+    <a href="index.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Home</a>
+    <a href="services.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Services</a>
+    <a href="work-visa.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Work & Visa</a>
+    <a href="destination.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Destinations</a>
+    <a href="gallery.HTML" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Gallery</a>
+    <a href="about.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">About Us</a>
+    <a href="contact.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Contact Us</a>
+</div>
+    </header>
 
-    <!-- New Hero Section -->
-    <main>
-        <section class="min-h-screen flex items-center bg-deep-green text-white pt-20 lg:pt-0">
-            <div class="container mx-auto px-6">
-                <div class="grid lg:grid-cols-2 gap-8 items-center">
-                    <!-- Left Content -->
-                    <div class="text-center lg:text-left">
-                        <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-4">Your Journey,<br>Our Priority.</h1>
-                        <p class="text-lg text-gray-300 max-w-lg mx-auto lg:mx-0 mb-8">
-                            Experience the world with GoldenHoof Travels. We craft bespoke luxury tours and create global career opportunities with unparalleled dedication and expertise.
-                        </p>
-                        <a href="#" class="cta-button">Plan Your Trip</a>
-                    </div>
-                    
-                    <!-- Right Content (3D Globe) -->
-                    <div id="globe-container"></div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Other sections can be added here as needed -->
+    <main id="main-content" class="pt-16">
+                <div class="hero-section">
+  <div id="globe-container"></div>
+  <div class="hero-content">
+    <h1>Your Journey, Our Priority</h1>
+    <p>From luxury vacations to global career opportunities, we handle every detail. Experience the world with GoldenHoof.</p>
+    <div class="cta-buttons">
+      <a href="work-visa.html" class="btn primary-btn">Work Abroad</a>
+      <a href="contact.html" class="btn secondary-btn">Contact Us</a>
+    </div>
+  </div>
+</div>
 
-    </main>
+                <div class="py-20 bg-white">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left animate-on-scroll slide-in-left">
+                    <h2 class="text-4xl font-bold text-deep-green mb-4">Explore & Work Abroad</h2>
+                    <p class="text-gray-600 mb-6">GoldenHoof Travels is your trusted partner for both unforgettable luxury holidays and life-changing career moves. We offer bespoke travel packages and comprehensive visa assistance for skilled workers seeking opportunities overseas.</p>
+                    <a href="services.html" class="cta-button">Our Services</a>
+                </div>
+                <div class="grid grid-cols-2 gap-6 animate-on-scroll slide-in-right">
+                    <a href="work-visa.html">
+                        <div class="bg-off-white p-6 rounded-lg shadow-lg text-center card-hover-effect">
+                             <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
+                            <i data-lucide="briefcase" class="h-10 w-10 text-elegant-gold mx-auto mb-3"></i>
+                            <h3 class="text-lg font-bold text-deep-green">Overseas Jobs</h3>
+                        </div>
+                    </a>
+                    <a href="destination.HTML">
+                         <div class="bg-off-white p-6 rounded-lg shadow-lg text-center card-hover-effect">
+                            <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
+                            <i data-lucide="palmtree" class="h-10 w-10 text-elegant-gold mx-auto mb-3"></i>
+                            <h3 class="text-lg font-bold text-deep-green">Luxury Travel</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+                <div class="py-20 bg-off-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold text-deep-green mb-4 animate-on-scroll slide-in-up">Featured Destinations</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-12 animate-on-scroll slide-in-up" style="transition-delay: 0.2s;">Explore our handpicked collection of breathtaking locations, each offering a unique and enriching travel experience.</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                                        <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover-effect animate-on-scroll slide-in-up" style="transition-delay: 0.3s;">
+                        <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
+                        <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1966&auto=format&fit=crop" alt="Italy" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-deep-green mb-2">Amalfi Coast, Italy</h3>
+                            <p class="text-gray-600 mb-4">Cliffside villages, azure waters, and timeless romance.</p>
+                            <a href="#" class="font-bold text-elegant-gold hover:text-deep-green">Discover More &rarr;</a>
+                        </div>
+                    </div>
+                                        <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover-effect animate-on-scroll slide-in-up" style="transition-delay: 0.4s;">
+                        <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
+                        <img src="https://images.unsplash.com/photo-1558521558-01314a1a3e5c?q=80&w=2070&auto=format&fit=crop" alt="Kyoto, Japan" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-deep-green mb-2">Kyoto, Japan</h3>
+                            <p class="text-gray-600 mb-4">Ancient temples, serene gardens, and vibrant traditions.</p>
+                            <a href="#" class="font-bold text-elegant-gold hover:text-deep-green">Discover More &rarr;</a>
+                        </div>
+                    </div>
+                                        <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover-effect animate-on-scroll slide-in-up" style="transition-delay: 0.5s;">
+                         <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
+                        <img src="https://images.unsplash.com/photo-1562979314-1a8a27792452?q=80&w=1964&auto=format&fit=crop" alt="Santorini, Greece" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-deep-green mb-2">Santorini, Greece</h3>
+                            <p class="text-gray-600 mb-4">Iconic sunsets, whitewashed villages, and volcanic beauty.</p>
+                            <a href="#" class="font-bold text-elegant-gold hover:text-deep-green">Discover More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <section class="py-20 bg-deep-green text-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center text-elegant-gold mb-12 animate-on-scroll slide-in-up">What Our Clients Say </h2>
+        
+        <div class="flex space-x-8 overflow-x-scroll snap-x snap-mandatory pb-4 scrollbar-hide lg:pb-0 lg:overflow-x-hidden lg:justify-center">
 
-    <!-- Footer -->
-    <footer class="bg-deep-green text-white py-12 border-t border-white/10">
-        <div class="container mx-auto px-6 text-center">
-            <a href="#">
-                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-16 mx-auto mb-4">
-            </a>
-            <p class="text-lg text-elegant-gold mb-6">Your Journey, Our Priority</p>
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="#" class="hover:text-elegant-gold"><i data-lucide="facebook"></i></a>
-                <a href="#" class="hover:text-elegant-gold"><i data-lucide="instagram"></i></a>
-                <a href="#" class="hover:text-elegant-gold"><i data-lucide="twitter"></i></a>
-            </div>
-            <p class="text-gray-400 text-sm">&copy; 2025 GoldenHoof Travels. All Rights Reserved.</p>
-        </div>
-    </footer>
+            <div class="testimonial-card flex-shrink-0 w-80 md:w-96 snap-center animate-on-scroll slide-in-up" style="transition-delay: 0.3s;">
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl shadow-2xl h-full border-t-4 border-elegant-gold transition duration-300 hover:bg-white/20">
+                    <i data-lucide="quote" class="h-8 w-8 text-elegant-gold mb-4"></i>
+                    <p class="text-gray-200 mb-6 italic">"GoldenHoof made my move to Canada seamless. The visa assistance was thorough and professional, and I felt supported every step of the way. Truly a life-changing service!"</p>
+                    <div class="flex items-center">
+                        <div class="bg-elegant-gold h-10 w-10 rounded-full flex items-center justify-center text-deep-green font-bold mr-3">JD</div>
+                        <div>
+                            <p class="font-bold text-elegant-gold">John Doe</p>
+                            <p class="text-sm text-gray-400">Skilled Worker, Toronto</p>
+                        </div>
+                </div>
+                </div>
+            </div>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script type="importmap">
-        { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js" } }
-    </script>
-    <script type="module">
-        import * as THREE from 'three';
+            <div class="testimonial-card flex-shrink-0 w-80 md:w-96 snap-center animate-on-scroll slide-in-up" style="transition-delay: 0.5s;">
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl shadow-2xl h-full border-t-4 border-elegant-gold transition duration-300 hover:bg-white/20">
+                    <i data-lucide="quote" class="h-8 w-8 text-elegant-gold mb-4"></i>
+                    <p class="text-gray-200 mb-6 italic">"Our luxury trip to the Amalfi Coast was flawlessly planned. Every hotel and excursion exceeded our expectations. This isn't just travel; it's an experience curated just for you."</p>
+                    <div class="flex items-center">
+                        <div class="bg-elegant-gold h-10 w-10 rounded-full flex items-center justify-center text-deep-green font-bold mr-3">AM</div>
+                        <div>
+                            <p class="font-bold text-elegant-gold">Aisha M.</p>
+                            <p class="text-sm text-gray-400">Luxury Traveller, Dubai</p>
+                        </div>
+                </div>
+                </div>
+            </div>
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
+            <div class="testimonial-card flex-shrink-0 w-80 md:w-96 snap-center animate-on-scroll slide-in-up" style="transition-delay: 0.7s;">
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl shadow-2xl h-full border-t-4 border-elegant-gold transition duration-300 hover:bg-white/20">
+                    <i data-lucide="quote" class="h-8 w-8 text-elegant-gold mb-4"></i>
+                    <p class="text-gray-200 mb-6 italic">"Finding an overseas job felt daunting, but GoldenHoof simplified the entire process, from interview prep to settling in. Highly recommended for professionals looking to expand their horizons."</p>
+                    <div class="flex items-center">
+                        <div class="bg-elegant-gold h-10 w-10 rounded-full flex items-center justify-center text-deep-green font-bold mr-3">CL</div>
+                        <div>
+                            <p class="font-bold text-elegant-gold">Chen Li</p>
+                            <p class="text-sm text-gray-400">Software Engineer, Sydney</p>
+                        </div>
+                </div>
+                </div>
+            </div>
+            
+            </div>
+        
+        <div class="text-center mt-12 animate-on-scroll slide-in-up" style="transition-delay: 0.9s;">
+            <a href="contact.html" class="cta-button">Share Your Story</a>
+        </div>
+    </div>
+</section>
 
-            // --- Mobile Menu Toggle ---
-            if (mobileMenuButton) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
+<button id="scrollToTopBtn" class="fixed bottom-6 right-6 bg-elegant-gold text-deep-green p-3 rounded-full shadow-2xl transition-all duration-300 opacity-0 transform translate-y-4 hover:bg-deep-green hover:text-elegant-gold z-50 focus:outline-none">
+    <i data-lucide="arrow-up" class="h-6 w-6"></i>
+</button>
 
-            // --- 3D Globe Logic ---
-            const container = document.getElementById('globe-container');
-            if (!container) return;
+        <footer class="bg-deep-green text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <a href="index.html">
+                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-16 mx-auto mb-4">
+            </a>
+            <p class="text-lg text-elegant-gold mb-6">Your Journey, Our Priority</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="facebook"></i></a>
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="instagram"></i></a>
+                <a href="#" class="hover:text-elegant-gold"><i data-lucide="twitter"></i></a>
+            </div>
+            <p class="text-gray-400 text-sm">&copy; 2025 GoldenHoof Travels. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-            let scene, camera, renderer, globe, airplane, clock;
-            
-            function init() {
-                // Scene
-                scene = new THREE.Scene();
-                clock = new THREE.Clock();
-                
-                // Camera
-                camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-                camera.position.z = 3.5;
+        <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- General Elements ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-                // Renderer
-                renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-                renderer.setSize(container.clientWidth, container.clientHeight);
-                renderer.setPixelRatio(window.devicePixelRatio);
-                container.appendChild(renderer.domElement);
-                
-                // Lights
-                const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
-                scene.add(ambientLight);
-                const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
-                directionalLight.position.set(5, 3, 5);
-                scene.add(directionalLight);
+        // --- Mobile Menu Toggle ---
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
 
-                // Globe with realistic textures
-                const textureLoader = new THREE.TextureLoader();
-                const geometry = new THREE.SphereGeometry(1.5, 64, 64);
-                const material = new THREE.MeshPhongMaterial({
-                    map: textureLoader.load('https://threejs.org/examples/textures/land_ocean_ice_cloud_2048.jpg'),
-                    bumpMap: textureLoader.load('https://threejs.org/examples/textures/earth_bump.jpg'),
-                    bumpScale: 0.05,
-                    specularMap: textureLoader.load('https://threejs.org/examples/textures/water.png'),
-                    specular: new THREE.Color('grey')
-                });
-                globe = new THREE.Mesh(geometry, material);
-                scene.add(globe);
+        // --- Intersection Observer for Scroll Animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
 
-                // Create the orbital path (dotted line)
-                const curve = new THREE.EllipseCurve(
-                    0, 0,            // ax, aY
-                    1.8, 1.8,         // xRadius, yRadius
-                    0, 2 * Math.PI,  // aStartAngle, aEndAngle
-                    false,           // aClockwise
-                    0                // aRotation
-                );
-                
-                const points = curve.getPoints(200);
-                const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
-                const lineMaterial = new THREE.LineDashedMaterial({
-                    color: 0xD4AF37,
-                    linewidth: 1,
-                    scale: 1,
-                    dashSize: 0.1,
-                    gapSize: 0.05,
-                });
-                const orbitLine = new THREE.Line(lineGeometry, lineMaterial);
-                orbitLine.computeLineDistances();
-                orbitLine.rotation.x = Math.PI / 4; // Tilt the orbit
-                scene.add(orbitLine);
+        // --- Page-Specific Initializations ---
 
-                // Create the airplane (as a golden sphere)
-                const planeGeometry = new THREE.SphereGeometry(0.04, 16, 16);
-                const planeMaterial = new THREE.MeshBasicMaterial({ color: 0xD4AF37 });
-                airplane = new THREE.Mesh(planeGeometry, planeMaterial);
-                airplane.position.set(1.8, 0, 0); // Initial position
-                
-                // Parent the airplane to the tilted orbit line's logic
-                const orbitGroup = new THREE.Group();
-                orbitGroup.rotation.x = Math.PI / 4;
-                orbitGroup.add(airplane);
-                scene.add(orbitGroup);
+        // 1. Home Page: 3D Globe
+        if (document.getElementById('globe-container')) {
+            let globe, scene, camera, renderer, animationFrameId, planes = [];
+            
+            function initGlobe() {
+                const container = document.getElementById('globe-container');
+                if (!container || container.children.length > 0) return;
 
-                // Event Listeners
-                window.addEventListener('resize', onWindowResize);
-            }
+                scene = new THREE.Scene();
+                camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+                camera.position.z = 3;
+                renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+                renderer.setSize(container.clientWidth, container.clientHeight);
+                renderer.setPixelRatio(window.devicePixelRatio);
+                container.appendChild(renderer.domElement);
+                
+                const textureLoader = new THREE.TextureLoader();
+                textureLoader.load('https://raw.githubusercontent.com/jthatch/web-dev-examples/main/three-js-earth/2k_earth_daymap.jpg', (texture) => {
+                    const geometry = new THREE.SphereGeometry(1.5, 64, 64);
+                    const material = new THREE.MeshPhongMaterial({ map: texture, shininess: 5 });
+                    globe = new THREE.Mesh(geometry, material);
+                    scene.add(globe);
+                });
 
-            function onWindowResize() {
-                camera.aspect = container.clientWidth / container.clientHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(container.clientWidth, container.clientHeight);
-            }
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                scene.add(ambientLight);
+                const pointLight = new THREE.PointLight(0xffffff, 1.5);
+                pointLight.position.set(5, 3, 5);
+                scene.add(pointLight);
 
-            function animate() {
-                requestAnimationFrame(animate);
-                
-                // Animate the airplane along the path
-                const elapsedTime = clock.getElapsedTime();
-                const angle = (elapsedTime * 0.5) % (2 * Math.PI); // speed control
-                airplane.position.x = 1.8 * Math.cos(angle);
-                airplane.position.y = 1.8 * Math.sin(angle);
+                const planeGeometry = new THREE.ConeGeometry(0.02, 0.1, 8);
+                planeGeometry.rotateX(Math.PI / 2);
+                const planeMaterial = new THREE.MeshBasicMaterial({ color: 0xD4AF37 });
+                
+                for (let i = 0; i < 3; i++) {
+                    const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+                    const orbitRadius = 1.7 + Math.random() * 0.2;
+                    const speed = 0.005 + Math.random() * 0.005;
+                    const angle = Math.random() * Math.PI * 2;
+                    const tilt = (Math.random() - 0.5) * Math.PI * 0.5; 
+                    planes.push({ mesh: plane, radius: orbitRadius, speed, angle, tilt });
+                    scene.add(plane);
+                }
 
-                renderer.render(scene, camera);
-            }
+                let mouseX = 0;
+                function onDocumentMouseMove(event) {
+                    mouseX = (event.clientX - window.innerWidth / 2);
+                }
+                document.addEventListener('mousemove', onDocumentMouseMove);
 
-            init();
-            animate();
-            
-            // --- Final Icon Initialization ---
-            lucide.createIcons();
-        });
-    </script>
+                function animate() {
+                    animationFrameId = requestAnimationFrame(animate);
+                    if (globe) {
+                        globe.rotation.y += (mouseX * 0.00001 - globe.rotation.y) * 0.01 + 0.0005;
+                    }
+                    
+                    planes.forEach(p => {
+                        p.angle += p.speed;
+                        const x = p.radius * Math.cos(p.angle);
+                        const z = p.radius * Math.sin(p.angle);
+                        const y = x * Math.sin(p.tilt);
+                        p.mesh.position.set(x, y, z);
+                        p.mesh.lookAt(scene.position);
+                    });
+
+                    renderer.render(scene, camera);
+                }
+                animate();
+
+                window.addEventListener('resize', () => {
+                    camera.aspect = container.clientWidth / container.clientHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(container.clientWidth, container.clientHeight);
+                });
+            }
+            initGlobe();
+        }
+
+        // --- Final Initialization ---
+        lucide.createIcons();
+    });
+    </script>
+<script>
+    // <!CDATA <-- For SVG support
+    if ('WebSocket' in window) {
+        (function () {
+            function refreshCSS() {
+                var sheets = [].slice.call(document.getElementsByTagName("link"));
+                var head = document.getElementsByTagName("head")[0];
+                for (var i = 0; i < sheets.length; ++i) {
+                    var elem = sheets[i];
+                    var parent = elem.parentElement || head;
+                    parent.removeChild(elem);
+                    var rel = elem.rel;
+                    if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                        var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                        elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                    }
+                    parent.appendChild(elem);
+                }
+            }
+            var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+            var address = protocol + window.location.host + window.location.pathname + '/ws';
+            var socket = new WebSocket(address);
+            socket.onmessage = function (msg) {
+                if (msg.data == 'reload') window.location.reload();
+                else if (msg.data == 'refreshcss') refreshCSS();
+            };
+            if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                console.log('Live reload enabled.');
+                sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+            }
+        })();
+    }
+    else {
+        console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+    // 
+
+// --- Scroll to Top Button Logic ---
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+// Function to check scroll position and toggle button visibility
+function toggleScrollToTopButton() {
+    if (window.scrollY > 400) { // Show button after scrolling 400px down
+        scrollToTopBtn.classList.remove('opacity-0', 'translate-y-4');
+        scrollToTopBtn.classList.add('opacity-100', 'translate-y-0');
+    } else {
+        scrollToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+        scrollToTopBtn.classList.add('opacity-0', 'translate-y-4');
+    }
+}
+
+// Function to handle the scroll action
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Smooth scrolling effect
+    });
+}
+
+// Event Listeners
+if (scrollToTopBtn) {
+    // 1. Listen for scroll events to toggle visibility
+    window.addEventListener('scroll', toggleScrollToTopButton);
+    
+    // 2. Listen for button clicks to scroll to the top
+    scrollToTopBtn.addEventListener('click', scrollToTop);
+    
+    // Initial check on load
+    toggleScrollToTopButton();
+}
+
+
+</script>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the current page's filename (e.g., 'index.html', 'services.html')
+        const currentPath = window.location.pathname.split('/').pop().toLowerCase() || 'index.html';
+        
+        // Select all the links in the mobile menu
+        const menuLinks = document.querySelectorAll('#mobile-menu a');
+        
+        menuLinks.forEach(link => {
+            const linkPath = link.getAttribute('href').toLowerCase();
+            
+            // Check if the link's href matches the current page's path
+            if (linkPath === currentPath) {
+                // Add the custom active classes
+                link.classList.add('active-menu-link', 'animate-underline');
+                
+                // Remove conflicting Tailwind classes to let the custom CSS control the color/style
+                link.classList.remove('text-white', 'hover:bg-elegant-gold', 'hover:text-deep-green');
+            }
+        });
+    });
+</script>
 </body>
 </html>
-
