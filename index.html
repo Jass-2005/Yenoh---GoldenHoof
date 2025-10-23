@@ -17,6 +17,27 @@
     
     <!-- Custom Styles -->
     <style>
+        
+
+        body {
+        font-family: 'Inter', sans-serif;
+        overflow-x: hidden; /* This is the key fix */
+        overflow-y: auto;   /* Ensures vertical scrolling still works */
+    }
+
+        @media (max-width: 767px) {
+    .slide-in-left,
+    .slide-in-right {
+        transform: translateX(0) !important; /* Remove horizontal offset on mobile */
+    }
+}
+
+
+@media (max-width: 767px) {
+    .slide-in-up {
+        transform: translateY(0) !important;
+    }
+}
 /* In your CSS media query block */
 .active-menu-link {
     color: #D4AF37 !important; /* The !important is crucial for overriding utilities */
@@ -204,7 +225,7 @@
   padding: 0.75rem 2rem;
   font-size: 1rem;
   font-weight: 600;
-  border-radius: 0.5rem;
+  border-radius: 9999px;
   text-decoration: none;
   /* SMOOTH HOVER TRANSITION */
   transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -348,7 +369,7 @@
                 <a href="services.html" class="nav-link">Services</a>
                 <a href="work-visa.html" class="nav-link">Work & Visa</a>
                 <a href="destination.html" class="nav-link">Destinations</a>
-                <a href="gallery.html" class="nav-link">Gallery</a>
+                <a href="GALLERY.html" class="nav-link">Gallery</a>
                 <a href="about.html" class="nav-link">About Us</a>
                 <a href="contact.html" class="nav-link">Contact Us</a>
             </nav>
@@ -384,72 +405,103 @@
   </div>
 </div>
 
-        <!-- Services Overview -->
-        <div class="py-20 bg-white">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-                <div class="text-center md:text-left animate-on-scroll slide-in-left">
-                    <h2 class="text-4xl font-bold text-deep-green mb-4">Explore & Work Abroad</h2>
-                    <p class="text-gray-600 mb-6">GoldenHoof Travels is your trusted partner for work permit and study visa solutions, guiding skilled professionals and students to opportunities abroad. While we do offer select luxury travel experiences, our core expertise lies in providing seamless visa assistance and helping you achieve your international career and educational goals.</p>
-                    <a href="services.html" class="cta-button">Our Services</a>
-                </div>
-                <div class="grid grid-cols-2 gap-6 animate-on-scroll slide-in-right">
-                    <a href="work-visa.html">
-                        <div class="bg-off-white p-6 rounded-lg shadow-lg text-center card-hover-effect">
-                             <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
-                            <i data-lucide="briefcase" class="h-10 w-10 text-elegant-gold mx-auto mb-3"></i>
-                            <h3 class="text-lg font-bold text-deep-green">Overseas Jobs</h3>
-                        </div>
-                    </a>
-                    <a href="destination.html">
-                         <div class="bg-off-white p-6 rounded-lg shadow-lg text-center card-hover-effect">
-                            <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
-                            <i data-lucide="palmtree" class="h-10 w-10 text-elegant-gold mx-auto mb-3"></i>
-                            <h3 class="text-lg font-bold text-deep-green">Luxury Travel</h3>
-                        </div>
-                    </a>
-                </div>
-            </div>
+<!-- Services Overview -->
+<div class="py-8 md:py-20 bg-white">
+    <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <!-- Text Content -->
+        <div class="text-center md:text-left animate-on-scroll slide-in-left">
+            <h2 class="text-4xl font-bold text-deep-green mb-4">Explore & Work Abroad</h2>
+            <p class="text-gray-600 mb-6">
+                GoldenHoof Travels is your trusted partner for work permit and study visa solutions, guiding skilled professionals and students to opportunities abroad. Our core expertise lies in providing seamless visa assistance and helping you achieve your international career and educational goals.
+            </p>
+            <a href="services.html" class="cta-button">Our Services</a>
         </div>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-2 gap-6 animate-on-scroll slide-in-right">
+            <!-- Overseas Jobs -->
+            <a href="work-visa.html">
+                <div class="bg-off-white p-6 rounded-lg shadow-lg text-center card-hover-effect">
+                    <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path d="M0,0 H100 V100 H0 Z" fill="none" />
+                        <path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" />
+                    </svg>
+                    <i data-lucide="briefcase" class="h-10 w-10 text-elegant-gold mx-auto mb-3"></i>
+                    <h3 class="text-lg font-bold text-deep-green">Overseas Jobs</h3>
+                </div>
+            </a>
+
+            <!-- Luxury Travel -->
+            <a href="destination.html">
+                <div class="bg-off-white p-6 rounded-lg shadow-lg text-center card-hover-effect">
+                    <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path d="M0,0 H100 V100 H0 Z" fill="none" />
+                        <path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" />
+                    </svg>
+                    <i data-lucide="palmtree" class="h-10 w-10 text-elegant-gold mx-auto mb-3"></i>
+                    <h3 class="text-lg font-bold text-deep-green">Luxury Travel</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
         
-        <!-- Destinations Showcase -->
-        <div class="py-20 bg-off-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl font-bold text-deep-green mb-4 animate-on-scroll slide-in-up">Featured Destinations</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto mb-12 animate-on-scroll slide-in-up" style="transition-delay: 0.2s;">Explore a world of global opportunities, from career-advancing work permits to life-changing study programs, each opening doors to new experiences and growth abroad.</p>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Destination 1 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover-effect animate-on-scroll slide-in-up" style="transition-delay: 0.3s;">
-                        <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
-                        <img src=Dubai.jpg alt="Dubai" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-deep-green mb-2">Dubai, UAE</h3>
-                            <p class="text-gray-600 mb-4">Global careers, tax-free income, and a life of opportunity.</p>
-                            <a href="destination.html" class="font-bold text-elegant-gold hover:text-deep-green">Discover More &rarr;</a>
-                        </div>
-                    </div>
-                    <!-- Destination 2 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover-effect animate-on-scroll slide-in-up" style="transition-delay: 0.4s;">
-                        <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
-                        <img src="moscow.jpg" alt="Moscow, Russia" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-deep-green mb-2">Moscow, Russia</h3>
-                            <p class="text-gray-600 mb-4">High demand, fast approvals, and a gateway to global experience.</p>
-                            <a href="destination.html" class="font-bold text-elegant-gold hover:text-deep-green">Discover More &rarr;</a>
-                        </div>
-                    </div>
-                    <!-- Destination 3 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover-effect animate-on-scroll slide-in-up" style="transition-delay: 0.5s;">
-                         <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 H100 V100 H0 Z" fill="none" /><path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" /></svg>
-                        <img src="singapore.jpg" alt="singapore" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-deep-green mb-2">Singapore</h3>
-                            <p class="text-gray-600 mb-4">High salaries, safe living, and limitless career growth.</p>
-                            <a href=destination.html" class="font-bold text-elegant-gold hover:text-deep-green">Discover More &rarr;</a>
-                        </div>
-                    </div>
+     <!-- Featured Destinations -->
+<div class="py-6 md:py-20 bg-off-white">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-deep-green mb-3 animate-on-scroll slide-in-up">
+            Featured Destinations
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto mb-6 md:mb-12 animate-on-scroll slide-in-up" style="transition-delay: 0.2s;">
+            Explore a world of global opportunities, from career-advancing work permits to life-changing study programs, each opening doors to new experiences and growth abroad.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+            <!-- Dubai -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover-effect animate-on-scroll slide-in-up" style="transition-delay: 0.3s;">
+                <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path d="M0,0 H100 V100 H0 Z" fill="none" />
+                    <path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" />
+                </svg>
+                <img src="Dubai.jpg" alt="Dubai" class="w-full h-56 object-cover">
+                <div class="p-5 md:p-6">
+                    <h3 class="text-2xl font-bold text-deep-green mb-2">Dubai, UAE</h3>
+                    <p class="text-gray-600 mb-3">Global careers, tax-free income, and a life of opportunity.</p>
+                    <a href="destination.html" class="font-bold text-elegant-gold hover:text-deep-green">Discover More &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Moscow -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover-effect animate-on-scroll slide-in-up" style="transition-delay: 0.4s;">
+                <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path d="M0,0 H100 V100 H0 Z" fill="none" />
+                    <path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" />
+                </svg>
+                <img src="moscow.jpg" alt="Moscow, Russia" class="w-full h-56 object-cover">
+                <div class="p-5 md:p-6">
+                    <h3 class="text-2xl font-bold text-deep-green mb-2">Moscow, Russia</h3>
+                    <p class="text-gray-600 mb-3">High demand, fast approvals, and a gateway to global experience.</p>
+                    <a href="destination.html" class="font-bold text-elegant-gold hover:text-deep-green">Discover More &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Singapore -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover-effect animate-on-scroll slide-in-up" style="transition-delay: 0.5s;">
+                <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path d="M0,0 H100 V100 H0 Z" fill="none" />
+                    <path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" />
+                </svg>
+                <img src="singapore.jpg" alt="Singapore" class="w-full h-56 object-cover">
+                <div class="p-5 md:p-6">
+                    <h3 class="text-2xl font-bold text-deep-green mb-2">Singapore</h3>
+                    <p class="text-gray-600 mb-3">High salaries, safe living, and limitless career growth.</p>
+                    <a href="destination.html" class="font-bold text-elegant-gold hover:text-deep-green">Discover More &rarr;</a>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
     </main>
     
     <section class="py-20 bg-deep-green text-white">
@@ -461,12 +513,12 @@
             <div class="testimonial-card flex-shrink-0 w-80 md:w-96 snap-center animate-on-scroll slide-in-up" style="transition-delay: 0.3s;">
                 <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl shadow-2xl h-full border-t-4 border-elegant-gold transition duration-300 hover:bg-white/20">
                     <i data-lucide="quote" class="h-8 w-8 text-elegant-gold mb-4"></i>
-                    <p class="text-gray-200 mb-6 italic">"GoldenHoof made my move to Canada seamless. The visa assistance was thorough and professional, and I felt supported every step of the way. Truly a life-changing service!"</p>
+                    <p class="text-gray-200 mb-6 italic">"GoldenHoof made my dream of working in Dubai come true! The visa process was smooth, transparent, and handled with complete professionalism. I didn’t have to worry about a single thing — they guided me step by step until I got my work visa in hand. Truly the best team to trust for overseas opportunities!"</p>
                     <div class="flex items-center">
-                        <div class="bg-elegant-gold h-10 w-10 rounded-full flex items-center justify-center text-deep-green font-bold mr-3">JD</div>
+                        <div class="bg-elegant-gold h-10 w-10 rounded-full flex items-center justify-center text-deep-green font-bold mr-3">AH</div>
                         <div>
-                            <p class="font-bold text-elegant-gold">John Doe</p>
-                            <p class="text-sm text-gray-400">Skilled Worker, Toronto</p>
+                            <p class="font-bold text-elegant-gold">Mr. ANWAR HUSAIN TUFANI MIYAN</p>
+                            <p class="text-sm text-gray-400">Skilled Worker, Dubai(UAE)/p>
                         </div>
                     </div>
                 </div>
@@ -475,12 +527,12 @@
             <div class="testimonial-card flex-shrink-0 w-80 md:w-96 snap-center animate-on-scroll slide-in-up" style="transition-delay: 0.5s;">
                 <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl shadow-2xl h-full border-t-4 border-elegant-gold transition duration-300 hover:bg-white/20">
                     <i data-lucide="quote" class="h-8 w-8 text-elegant-gold mb-4"></i>
-                    <p class="text-gray-200 mb-6 italic">"Our luxury trip to the Amalfi Coast was flawlessly planned. Every hotel and excursion exceeded our expectations. This isn't just travel; it's an experience curated just for you."</p>
+                    <p class="text-gray-200 mb-6 italic">"GoldenHoof made my Russia work visa process simple and stress-free. Everything was handled on time, with clear communication and full support. Truly appreciate their professional guidance throughout the process"</p>
                     <div class="flex items-center">
-                        <div class="bg-elegant-gold h-10 w-10 rounded-full flex items-center justify-center text-deep-green font-bold mr-3">AM</div>
+                        <div class="bg-elegant-gold h-10 w-10 rounded-full flex items-center justify-center text-deep-green font-bold mr-3">GS</div>
                         <div>
-                            <p class="font-bold text-elegant-gold">Aisha M.</p>
-                            <p class="text-sm text-gray-400">Luxury Traveller, Dubai</p>
+                            <p class="font-bold text-elegant-gold">Gurpreet singh.</p>
+                            <p class="text-sm text-gray-400">Skilled worker, Russia</p>
                         </div>
                     </div>
                 </div>
@@ -489,11 +541,11 @@
             <div class="testimonial-card flex-shrink-0 w-80 md:w-96 snap-center animate-on-scroll slide-in-up" style="transition-delay: 0.7s;">
                 <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl shadow-2xl h-full border-t-4 border-elegant-gold transition duration-300 hover:bg-white/20">
                     <i data-lucide="quote" class="h-8 w-8 text-elegant-gold mb-4"></i>
-                    <p class="text-gray-200 mb-6 italic">"Finding an overseas job felt daunting, but GoldenHoof simplified the entire process, from interview prep to settling in. Highly recommended for professionals looking to expand their horizons."</p>
+                    <p class="text-gray-200 mb-6 italic">"GoldenHoof handled my Dubai work visa with great care and honesty. The process was smooth, and I got my visa exactly on time. I’m now working in Dubai, all thanks to their genuine and professional service"</p>
                     <div class="flex items-center">
-                        <div class="bg-elegant-gold h-10 w-10 rounded-full flex items-center justify-center text-deep-green font-bold mr-3">CL</div>
+                        <div class="bg-elegant-gold h-10 w-10 rounded-full flex items-center justify-center text-deep-green font-bold mr-3">LK</div>
                         <div>
-                            <p class="font-bold text-elegant-gold">Chen Li</p>
+                            <p class="font-bold text-elegant-gold">Mr.Lal Khan</p>
                             <p class="text-sm text-gray-400">Software Engineer, Sydney</p>
                         </div>
                     </div>
@@ -743,5 +795,4 @@ if (scrollToTopBtn) {
 </script>
 </body>
 </html>
-
 

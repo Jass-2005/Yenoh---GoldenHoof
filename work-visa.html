@@ -5,22 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work & Visa - GoldenHoof Travels</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="PURE LOGO.png" type="image/png">
-    <title>GoldenHoof Travels</title>
         
-    <!-- Custom Styles -->
     <style>
-        .active-menu-link {
-    color: #D4AF37 !important; /* The !important is crucial for overriding utilities */
-    /* ... other styles */
-}
         :root {
             --deep-green: #013220;
             --elegant-gold: #D4AF37;
@@ -36,6 +28,7 @@
             font-family: 'Playfair Display', serif;
         }
         
+        /* Tailwind color overrides/definitions */
         .bg-deep-green { background-color: var(--deep-green); }
         .text-deep-green { color: var(--deep-green); }
         .bg-elegant-gold { background-color: var(--elegant-gold); }
@@ -52,7 +45,7 @@
             border-radius: 9999px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease, box-shadow 0.5s ease;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
         .cta-button:hover {
@@ -68,7 +61,13 @@
             transform: none;
         }
 
-        .nav-link {
+        /* --- Button Glow Animation --- */
+        .glow-on-hover:hover {
+            box-shadow: 0 0 10px var(--elegant-gold), 0 0 20px var(--elegant-gold), 0 0 30px rgba(212, 175, 55, 0.5);
+        }
+
+        /* --- Navigation Link Animation (Desktop - RETAINING ANIMATION) --- */
+       .nav-link {
             position: relative;
             transition: color 0.3s ease, transform 0.3s ease;
             padding: 4px 8px;
@@ -96,61 +95,38 @@
         .nav-link.active::after, .nav-link:hover::after {
             width: 100%;
         }
-        .form-input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
+
+        /* --- Mobile Menu Active Link (Matching services.html screenshot style) --- */
+        /* This rule sets the gold text and subtle background tint for the active link */
+        #mobile-menu a.active-menu-link {
+            color: var(--elegant-gold) !important;
+            
         }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--elegant-gold);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
-        }
-        .loader-small {
-            border: 3px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 3px solid var(--elegant-gold);
-            width: 20px;
-            height: 20px;
-            animation: spin 1s linear infinite;
-            display: inline-block;
-            margin-left: 8px;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+
     </style>
 </head>
 <body class="bg-off-white">
 
-    <!-- Header & Navigation -->
     <header id="header" class="bg-deep-green text-white fixed w-full z-50 transition-shadow duration-300 shadow-lg">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-3">
-    <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-12">
-    
-    <div class="flex flex-col sm:flex-row sm:space-x-1">
-        
-        <h1 class="text-lg sm:text-xl font-bold text-elegant-gold uppercase">
-            GoldenHoof
-        </h1>
-        
-        <h1 class="text-lg sm:text-xl font-bold text-elegant-white uppercase">
-            Travels
-        </h1>
-        
-    </div>
-</a>
+                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-12">
+                
+                <div class="flex flex-col sm:flex-row sm:space-x-1">
+                    <h1 class="text-lg sm:text-xl font-bold text-elegant-gold uppercase">
+                        GoldenHoof
+                    </h1>
+                    <h1 class="text-lg sm:text-xl font-bold text-white uppercase">
+                        Travels
+                    </h1>
+                </div>
+            </a>
             <nav class="hidden lg:flex items-center space-x-6">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="services.html" class="nav-link">Services</a>
-                <a href="work-visa.html" class="nav-link active">Work & Visa</a>
+                <a href="work-visa.html" class="nav-link">Work & Visa</a>
                 <a href="destination.html" class="nav-link">Destinations</a>
                 <a href="gallery.html" class="nav-link">Gallery</a>
-                
                 <a href="about.html" class="nav-link">About Us</a>
                 <a href="contact.html" class="nav-link">Contact Us</a>
             </nav>
@@ -160,14 +136,13 @@
                 </button>
             </div>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-deep-green/95 backdrop-blur-sm">
+        <!-- Mobile Menu HTML (Using hover:bg-elegant-gold hover:text-deep-green for standard hover) -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-deep-green/95">
             <a href="index.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Home</a>
             <a href="services.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Services</a>
             <a href="work-visa.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Work & Visa</a>
             <a href="destination.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Destinations</a>
             <a href="gallery.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Gallery</a>
-            
             <a href="about.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">About Us</a>
             <a href="contact.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green">Contact Us</a>
         </div>
@@ -180,84 +155,135 @@
                 <p class="text-gray-600 text-lg max-w-3xl mx-auto">Explore rewarding employment opportunities with our trusted partners overseas. We provide comprehensive visa and documentation support to start your new career.</p>
             </div>
 
-            <!-- Job Opportunities Sections -->
             <div class="space-y-16">
-                <!-- Dubai Section -->
-                <section id="dubai-jobs" class="bg-white p-8 md:p-12 rounded-lg shadow-2xl">
+                
+                <section id="dubai-jobs" class="relative overflow-hidden rounded-lg shadow-2xl bg-white p-8 md:p-12">
                     <div class="grid md:grid-cols-2 gap-8 items-center">
                         <div>
                             <h2 class="text-3xl font-bold text-deep-green mb-2">We're Hiring: Jobs in Dubai</h2>
                             <p class="text-gray-600 mb-6">Excellent opportunities for skilled tradespeople. Visa provided within 5 days.</p>
-                            <ul class="grid grid-cols-2 gap-x-8 gap-y-2 text-gray-700">
-                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>Mason</li>
-                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>Electrician</li>
-                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>Plumber</li>
-                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>Wall Painter</li>
-                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>Carpenter</li>
-                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>Gypsum Helper</li>
-                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>Pipe Fitter</li>
-                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>General Helper</li>
-                                <li class="flex items-center"><i data-lucide="wrench" class="w-4 h-4 mr-2 text-elegant-gold"></i>Steel Fixer</li>
-                            </ul>
+                            <h3 class="text-xl font-bold text-deep-green mb-3 mt-4">Available Positions</h3>
+                            <div class="grid grid-cols-2 gap-x-8 gap-y-2 text-gray-700">
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Mason</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Electrician</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Plumber</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Wall Painter</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Carpenter</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Gypsum Helper</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Pipe Fitter</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>General Helper</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Steel Fixer</div>
+                            </div>
                             <div class="mt-6 border-t pt-4">
                                 <p><strong>Duty:</strong> 9 hours + Overtime, Monthly 26 Days</p>
                             </div>
                         </div>
-                        <div class="p-4 border-2 border-dashed border-elegant-gold rounded-lg bg-gray-50">
-                            <h3 class="text-xl font-bold text-deep-green text-center mb-4">✨ AI Cover Letter Helper</h3>
-                            <div class="space-y-4">
-                                <div>
-                                    <label for="name-dubai" class="font-medium text-sm text-gray-700">Your Full Name</label>
-                                    <input type="text" id="name-dubai" class="form-input mt-1" placeholder="Enter your name">
-                                </div>
-                                <div>
-                                    <label for="job-select-dubai" class="font-medium text-sm text-gray-700">Select a Position</label>
-                                    <select id="job-select-dubai" class="form-input mt-1">
-                                        <option>Mason</option><option>Electrician</option><option>Plumber</option><option>Wall Painter</option><option>Carpenter</option><option>Gypsum Helper</option><option>Pipe Fitter</option><option>General Helper</option><option>Steel Fixer</option>
-                                    </select>
-                                </div>
-                                <button id="generate-letter-dubai" class="w-full cta-button py-2.5">Generate Intro</button>
-                                <div id="result-dubai" class="hidden mt-4 p-4 bg-gray-100 rounded-md text-sm text-gray-800 border border-gray-200"></div>
+                        <div class="p-4 rounded-lg bg-gray-100 flex flex-col justify-between items-center text-center shadow-lg"> 
+                            <h3 class="text-xl font-bold text-deep-green mb-4">Your Future in Dubai Starts Here</h3>
+                            <div class="w-full flex justify-center items-center h-48 sm:h-64 mb-4 overflow-hidden rounded-md shadow-md"> 
+                                <img src="DUBAI-CTA.jpg" alt="Dubai Cityscape" class="w-full h-full object-cover">
                             </div>
+                            <a href="contact.html" class="w-full cta-button py-2.5 glow-on-hover">Apply Now</a>
                         </div>
                     </div>
                 </section>
 
-                <!-- Belarus Section -->
-                <section id="belarus-jobs" class="bg-white p-8 md:p-12 rounded-lg shadow-2xl">
+                <section id="belarus-jobs" class="relative overflow-hidden rounded-lg shadow-2xl bg-white p-8 md:p-12">
                     <div class="grid md:grid-cols-2 gap-8 items-center">
                         <div>
-                             <h2 class="text-3xl font-bold text-deep-green mb-2">Employment Visa: Belarus, Europe</h2>
+                               <h2 class="text-3xl font-bold text-deep-green mb-2">Employment Visa: Belarus, Europe</h2>
                             <p class="text-gray-600 mb-6">Great opportunity for carpenters and construction workers. ECR/ECNR both accepted.</p>
-                             <ul class="space-y-3 text-gray-700">
-                                <li class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Finishing Carpenter: $650 + Free Food + OT</li>
-                                <li class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>PVC Worker: $650 + Free Food + OT</li>
-                                <li class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Electrician: $650 + Free Food + OT</li>
-                                <li class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Mason: $650 + Free Food + OT</li>
-                            </ul>
-                             <div class="mt-6 border-t pt-4 space-y-2">
+                               <h3 class="text-xl font-bold text-deep-green mb-3 mt-4">Available Positions</h3>
+                               <div class="grid grid-cols-2 gap-x-8 gap-y-2 text-gray-700">
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Finishing Carpenter</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>PVC Worker</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Electrician</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Mason</div>
+                            </div>
+                               <div class="mt-6 border-t pt-4 space-y-2">
                                 <p><strong>Duty:</strong> 10 hours + OT applicable</p>
                                 <p><strong>Provided by Company:</strong> Accommodation, Medical & Transportation</p>
                                 <p><strong>Candidate Pays:</strong> Embassy Fees & Insurance</p>
                                 <p><strong>Requirement:</strong> Age 24-37, Working Video</p>
                             </div>
                         </div>
-                        <div class="p-4 border-2 border-dashed border-elegant-gold rounded-lg bg-gray-50">
-                            <h3 class="text-xl font-bold text-deep-green text-center mb-4">✨ AI Cover Letter Helper</h3>
-                            <div class="space-y-4">
-                                <div>
-                                    <label for="name-belarus" class="font-medium text-sm text-gray-700">Your Full Name</label>
-                                    <input type="text" id="name-belarus" class="form-input mt-1" placeholder="Enter your name">
-                                </div>
-                                <div>
-                                    <label for="job-select-belarus" class="font-medium text-sm text-gray-700">Select a Position</label>
-                                    <select id="job-select-belarus" class="form-input mt-1">
-                                        <option>Finishing Carpenter</option><option>PVC Worker</option><option>Electrician</option><option>Mason</option>
-                                    </select>
-                                </div>
-                                <button id="generate-letter-belarus" class="w-full cta-button py-2.5">Generate Intro</button>
-                                <div id="result-belarus" class="hidden mt-4 p-4 bg-gray-100 rounded-md text-sm text-gray-800 border border-gray-200"></div>
+                        <div class="p-4 rounded-lg bg-gray-100 flex flex-col justify-between items-center text-center shadow-lg"> 
+                            <h3 class="text-xl font-bold text-deep-green mb-4">Explore Opportunities in Belarus</h3>
+                            <div class="w-full flex justify-center items-center h-48 sm:h-64 mb-4 overflow-hidden rounded-md shadow-md"> 
+                                <img src="belarus1.jpg" alt="Belarus Cityscape" class="w-full h-full object-cover">
                             </div>
+                            <a href="contact.html" class="w-full cta-button py-2.5 glow-on-hover">Apply Now</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="russia-jobs" class="relative overflow-hidden rounded-lg shadow-2xl bg-white p-8 md:p-12">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h2 class="text-3xl font-bold text-deep-green mb-2">Employment Visa: Russia (FM LOGISTIC)</h2>
+                            <p class="text-gray-600 mb-6">Urgent requirement for a logistics company. Stamp Visa process time 45 days. ECR/ECNR both can apply.</p>
+                            
+                            <h3 class="text-xl font-bold text-deep-green mb-3 mt-4">Available Positions</h3>
+                            <div class="grid grid-cols-2 gap-y-3 gap-x-8 text-gray-700">
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Cleaner</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Security Guard</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Watchman</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Warehouse Helper</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Packing Helper</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Loading & Unloading</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Light Driver</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Store Keeper</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Data Entry Op.</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Incharge</div>
+                            </div>
+
+                            <div class="mt-8 border-t pt-4 space-y-2">
+                                <p><strong>Age Limit:</strong> 23 to 48 years</p>
+                                <p><strong>Experience:</strong> Must have 5 years experience</p>
+                                <p><strong>Leave:</strong> 60 days after contract periods (2 years)</p>
+                                <p><strong>Provided by Company:</strong> Food, Accommodation, Medical & Transportation</p>
+                                <p><strong>Candidate Pays:</strong> Embassy Fees & Insurance</p>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-lg bg-gray-100 flex flex-col justify-between items-center text-center shadow-lg"> 
+                            <h3 class="text-xl font-bold text-deep-green mb-4">Immediate Recruitment for Russia</h3>
+                            <div class="w-full flex justify-center items-center h-48 sm:h-64 mb-4 overflow-hidden rounded-md shadow-md"> 
+                                <img src="russia.jpg" alt="Warehouse and logistics job setting in Russia" class="w-full h-full object-cover">
+                            </div>
+                            <a href="contact.html" class="w-full cta-button py-2.5 glow-on-hover">Apply Now</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="malaysia-jobs" class="relative overflow-hidden rounded-lg shadow-2xl bg-white p-8 md:p-12">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h2 class="text-3xl font-bold text-deep-green mb-2">Employment Visa: Kuala Lumpur, Malaysia</h2>
+                            <p class="text-gray-600 mb-6">Explore rewarding positions in manufacturing and hospitality sectors. Quick visa processing available.</p>
+                            
+                            <h3 class="text-xl font-bold text-deep-green mb-3 mt-4">Available Positions</h3>
+                            <div class="grid grid-cols-2 gap-y-3 gap-x-8 text-gray-700">
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>General Helper</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Packaging Operator</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Welder (MIG/TIG)</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>CNC Operator</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Hotel Cleaner</div>
+                                <div class="flex items-center"><i data-lucide="user-check" class="w-4 h-4 mr-2 text-elegant-gold"></i>Security Guard</div>
+                            </div>
+
+                            <div class="mt-8 border-t pt-4 space-y-2">
+                                <p><strong>Duty:</strong> 8 hours + OT, 6 days a week</p>
+                                <p><strong>Contract:</strong> 2 Years, renewable</p>
+                                <p><strong>Provided by Company:</strong> Accommodation, Transportation, Medical</p>
+                                <p><strong>Requirement:</strong> Age 20-40, basic English skills</p>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-lg bg-gray-100 flex flex-col justify-between items-center text-center shadow-lg"> 
+                            <h3 class="text-xl font-bold text-deep-green mb-4">Discover Your Career in Malaysia</h3>
+                            <div class="w-full flex justify-center items-center h-48 sm:h-64 mb-4 overflow-hidden rounded-md shadow-md"> 
+                                <img src="kuala.jpg" alt="Kuala Lumpur skyline or factory setting" class="w-full h-full object-cover">
+                            </div>
+                            <a href="contact.html" class="w-full cta-button py-2.5 glow-on-hover">Apply Now</a>
                         </div>
                     </div>
                 </section>
@@ -267,7 +293,6 @@
 <button id="scrollToTopBtn" class="fixed bottom-6 right-6 bg-elegant-gold text-deep-green p-3 rounded-full shadow-2xl transition-all duration-300 opacity-0 transform translate-y-4 hover:bg-deep-green hover:text-elegant-gold z-50 focus:outline-none">
     <i data-lucide="arrow-up" class="h-6 w-6"></i>
 </button>
-    <!-- Footer -->
     <footer class="bg-deep-green text-white py-12">
         <div class="container mx-auto px-6 text-center">
             <a href="index.html">
@@ -282,154 +307,72 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelectorAll('nav.lg\\:flex .nav-link');
+        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
 
-        // --- Mobile Menu Toggle ---
+        // --- Mobile Menu Toggle (Toggles 'hidden' class) ---
         if (mobileMenuButton) {
             mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
+                // Toggles the Tailwind 'hidden' utility class for instant display/hide
+                mobileMenu.classList.toggle('hidden'); 
             });
         }
         
-        // --- Gemini API Call Function ---
-        async function callGeminiAPI(payload, retryCount = 0) {
-            const apiKey = ""; // Left empty as per instructions
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-            const maxRetries = 3;
-            const backoffDelay = 1000 * Math.pow(2, retryCount);
+        // --- Navigation Link Active State ---
+        const currentPath = window.location.pathname.split('/').pop().toLowerCase() || 'index.html';
 
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
+        // For desktop navigation
+        navLinks.forEach(link => {
+            const linkPath = link.getAttribute('href').toLowerCase();
+            if (linkPath === currentPath) {
+                link.classList.add('active');
+            }
+        });
 
-                if (!response.ok) {
-                    if (response.status === 429 && retryCount < maxRetries) {
-                        await new Promise(resolve => setTimeout(resolve, backoffDelay));
-                        return callGeminiAPI(payload, retryCount + 1);
-                    }
-                    const errorBody = await response.text();
-                    throw new Error(`API Error: ${response.status} ${errorBody}`);
-                }
-                const result = await response.json();
-                return result.candidates?.[0]?.content?.parts?.[0]?.text;
-            } catch (error) {
-                console.error("Gemini API call failed:", error);
-                return null;
+        // For mobile navigation
+        mobileMenuLinks.forEach(link => {
+            const linkPath = link.getAttribute('href').toLowerCase();
+            if (linkPath === currentPath) {
+                link.classList.add('active-menu-link');
+                // Remove conflicting hover classes inherited from HTML element
+                link.classList.remove('hover:bg-elegant-gold', 'hover:text-deep-green'); 
+            }
+        });
+
+        // --- Scroll to Top Button Logic ---
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        function toggleScrollToTopButton() {
+            if (window.scrollY > 400) {
+                scrollToTopBtn.classList.remove('opacity-0', 'translate-y-4');
+                scrollToTopBtn.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                scrollToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+                scrollToTopBtn.classList.add('opacity-0', 'translate-y-4');
             }
         }
 
-        // --- Cover Letter AI Helper Logic ---
-        function setupCoverLetterGenerator(section) {
-            const generateBtn = document.getElementById(`generate-letter-${section}`);
-            const nameInput = document.getElementById(`name-${section}`);
-            const jobSelect = document.getElementById(`job-select-${section}`);
-            const resultDiv = document.getElementById(`result-${section}`);
-
-            if (!generateBtn) return;
-
-            generateBtn.addEventListener('click', async () => {
-                const name = nameInput.value;
-                const jobTitle = jobSelect.value;
-
-                if (!name.trim()) {
-                    alert('Please enter your name.');
-                    return;
-                }
-
-                const originalBtnText = generateBtn.innerHTML;
-                generateBtn.innerHTML = `Generating... <span class="loader-small"></span>`;
-                generateBtn.disabled = true;
-                resultDiv.classList.add('hidden');
-
-                const location = section === 'dubai' ? 'Dubai' : 'Belarus, Europe';
-                const prompt = `Write a professional, single-paragraph introduction for a cover letter. My name is ${name}, and I am applying for the ${jobTitle} position in ${location} that I saw advertised by GoldenHoof Travels. Mention my keen interest and relevant skills for this trade. Keep it concise and impactful.`;
-                
-                const payload = { contents: [{ parts: [{ text: prompt }] }] };
-                const resultText = await callGeminiAPI(payload);
-
-                if (resultText) {
-                    resultDiv.textContent = resultText;
-                    resultDiv.classList.remove('hidden');
-                } else {
-                    resultDiv.textContent = 'Sorry, there was an error generating the text. Please try again.';
-                    resultDiv.classList.remove('hidden');
-                }
-                
-                generateBtn.innerHTML = originalBtnText;
-                generateBtn.disabled = false;
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         }
 
-        setupCoverLetterGenerator('dubai');
-        setupCoverLetterGenerator('belarus');
+        if (scrollToTopBtn) {
+            window.addEventListener('scroll', toggleScrollToTopButton);
+            scrollToTopBtn.addEventListener('click', scrollToTop);
+            toggleScrollToTopButton(); // Initial check on load
+        }
 
         // --- Final Initialization ---
         lucide.createIcons();
     });
-// --- Scroll to Top Button Logic ---
-const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-
-// Function to check scroll position and toggle button visibility
-function toggleScrollToTopButton() {
-    if (window.scrollY > 400) { // Show button after scrolling 400px down
-        scrollToTopBtn.classList.remove('opacity-0', 'translate-y-4');
-        scrollToTopBtn.classList.add('opacity-100', 'translate-y-0');
-    } else {
-        scrollToTopBtn.classList.remove('opacity-100', 'translate-y-0');
-        scrollToTopBtn.classList.add('opacity-0', 'translate-y-4');
-    }
-}
-
-// Function to handle the scroll action
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // Smooth scrolling effect
-    });
-}
-
-// Event Listeners
-if (scrollToTopBtn) {
-    // 1. Listen for scroll events to toggle visibility
-    window.addEventListener('scroll', toggleScrollToTopButton);
-    
-    // 2. Listen for button clicks to scroll to the top
-    scrollToTopBtn.addEventListener('click', scrollToTop);
-    
-    // Initial check on load
-    toggleScrollToTopButton();
-}
-
     </script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get the current page's filename (e.g., 'index.html', 'services.html')
-        const currentPath = window.location.pathname.split('/').pop().toLowerCase() || 'index.html';
-        
-        // Select all the links in the mobile menu
-        const menuLinks = document.querySelectorAll('#mobile-menu a');
-        
-        menuLinks.forEach(link => {
-            const linkPath = link.getAttribute('href').toLowerCase();
-            
-            // Check if the link's href matches the current page's path
-            if (linkPath === currentPath) {
-                // Add the custom active classes
-                link.classList.add('active-menu-link', 'animate-underline');
-                
-                // Remove conflicting Tailwind classes to let the custom CSS control the color/style
-                link.classList.remove('text-white', 'hover:bg-elegant-gold', 'hover:text-deep-green');
-            }
-        });
-    });
-</script>
 </body>
 </html>
