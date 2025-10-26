@@ -293,17 +293,72 @@
 <button id="scrollToTopBtn" class="fixed bottom-6 right-6 bg-elegant-gold text-deep-green p-3 rounded-full shadow-2xl transition-all duration-300 opacity-0 transform translate-y-4 hover:bg-deep-green hover:text-elegant-gold z-50 focus:outline-none">
     <i data-lucide="arrow-up" class="h-6 w-6"></i>
 </button>
-    <footer class="bg-deep-green text-white py-12">
-        <div class="container mx-auto px-6 text-center">
-            <a href="index.html">
-                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-16 mx-auto mb-4">
-            </a>
-            <p class="text-lg text-elegant-gold mb-6">Your Journey, Our Priority</p>
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="https://www.facebook.com/profile.php?id=61582183583786" class="hover:text-elegant-gold"><i data-lucide="facebook"></i></a>
-                <a href="https://www.instagram.com/goldenhoof_travels/" class="hover:text-elegant-gold"><i data-lucide="instagram"></i></a>
+     <footer class="bg-deep-green text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pb-8 border-b border-white/10">
+                
+                <!-- Column 1: Logo and Brand -->
+                <div class="col-span-2 md:col-span-1">
+                    <a href="index.html" class="flex items-center space-x-2 mb-3">
+                        <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-10">
+                        <span class="text-xl font-bold text-elegant-gold">GoldenHoof Travels</span>
+                    </a>
+                    <p class="text-gray-400 text-sm mb-4">Your trusted partner for global career and travel solutions. Journey further, grow stronger.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61582183583786" class="text-gray-400 hover:text-elegant-gold transition"><i data-lucide="facebook"></i></a>
+                        <a href="https://www.instagram.com/goldenhoof_travels/" class="text-gray-400 hover:text-elegant-gold transition"><i data-lucide="instagram"></i></a>
+                        <!-- Add LinkedIn or Twitter/X if applicable -->
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="text-base font-bold text-elegant-gold mb-3 uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-1">
+                        <li><a href="index.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>About Us</a></li>
+                        <li><a href="destination.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Destinations</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Gallery</a></li>
+                        <li><a href="contact.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Our Services -->
+                <div>
+                    <h4 class="text-base font-bold text-elegant-gold mb-3 uppercase tracking-wider">Our Services</h4>
+                    <ul class="space-y-1">
+                        <li><a href="work-visa.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Work Visas</a></li>
+                        <li><a href="services.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Employment Services</a></li>
+                        <li><a href="services.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Visa Documentation</a></li>
+                        <li><a href="services.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Custom Travel</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact/Location Info -->
+                <div class="col-span-2 md:col-span-1">
+                    <h4 class="text-base font-bold text-elegant-gold mb-3 uppercase tracking-wider">Get In Touch</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-elegant-gold mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-400 text-sm">SCO 139, D-Block, Amritsar, India</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="phone" class="w-4 h-4 text-elegant-gold mt-1 mr-3 flex-shrink-0"></i>
+                            <a href="tel:+917973374228" class="text-gray-400 text-sm hover:text-white transition">+91 79733-74228</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="mail" class="w-4 h-4 text-elegant-gold mt-1 mr-3 flex-shrink-0"></i>
+                            <a href="mailto:goldenhoof.travels90@gmail.com" class="text-gray-400 text-sm hover:text-white transition">goldenhoof.travels90@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
-            <p class="text-gray-400 text-sm">&copy; 2025 GoldenHoof Travels. All Rights Reserved.</p>
+
+            <!-- Copyright Row -->
+            <div class="pt-6 text-center text-gray-500 text-sm">
+                &copy; 2025 GoldenHoof Travels. All Rights Reserved. <br><br>Built by <a href="www.yenoh.space"><u>Yenoh </u></a>
+            </div>
         </div>
     </footer>
 

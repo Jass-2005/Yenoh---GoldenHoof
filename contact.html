@@ -106,6 +106,11 @@
             color: var(--elegant-gold) !important;
             background-color: rgba(212, 175, 55, 0.1) !important; 
         }
+        
+        .footer-link:hover {
+            color: var(--elegant-gold);
+            transform: translateX(5px);
+        }
     </style>
 </head>
 <body class="bg-off-white">
@@ -190,7 +195,7 @@
                         </div>
                     </div>
                     
-                    <!-- Right Column: Contact Form (Updated fields and order) -->
+                    <!-- Right Column: Contact Form -->
                     <form id="contact-form" action="https://formspree.io/f/xdkwrdkk" method="POST" class="space-y-6">
                         
                         <div>
@@ -205,9 +210,9 @@
                                 id="mobile" 
                                 name="Mobile Number" 
                                 class="form-input mt-2" 
-                                placeholder="+91 98765 43210 (10-15 digits)" 
-                                pattern="[0-9]{10,15}" 
-                                title="Please enter a valid phone number (10 to 15 digits)."
+                                placeholder="e.g., +919876543210" 
+                                pattern="^\+?[0-9]{10,15}$" 
+                                title="Please enter a valid phone number (10 to 15 digits, optionally starting with +)."
                                 required>
                             
                         </div>
@@ -217,7 +222,7 @@
                             <input type="text" id="country" name="Country of Interest" class="form-input mt-2" placeholder="e.g., Dubai, Canada, Russia" required>
                         </div>
 
-                        <!-- NEW MESSAGE FIELD -->
+                        <!-- MESSAGE FIELD -->
                         <div>
                             <label for="message" class="font-medium text-gray-700">Message</label>
                             <textarea id="message" name="Message" rows="5" class="form-input mt-2" placeholder="Your inquiry or details here..."></textarea>
@@ -251,7 +256,7 @@
             <!-- Mobile Map (visible on small screens only) -->
             <div class="mt-16 rounded-lg shadow-2xl overflow-hidden block md:hidden" style="position: relative; width: 100%; padding-bottom: 75%;">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d212.26304263739016!2d74.8547772!3d31.65551!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391965b40a46835d%3A0xb48aa431941a198f!2sGoldenhoof%20Travels!5e0!3m2!1sen!2sin!4v1759515450655!5m2!1sen!2sin" 
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d212.26304263739016!2d74.8547772!3d31.65551!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391965b40a468355d%3A0xb48aa431941a198f!2sGoldenhoof%20Travels!5e0!3m2!1sen!2sin!4v1759515450655!5m2!1sen!2sin" 
                     style="border:0; position: absolute; top:0; left:0; width:100%; height:100%;" 
                     allowfullscreen="" 
                     loading="lazy" 
@@ -264,18 +269,73 @@
 <button id="scrollToTopBtn" class="fixed bottom-6 right-6 bg-elegant-gold text-deep-green p-3 rounded-full shadow-2xl transition-all duration-300 opacity-0 transform translate-y-4 hover:bg-deep-green hover:text-elegant-gold z-50 focus:outline-none">
     <i data-lucide="arrow-up" class="h-6 w-6"></i>
 </button>
-    <!-- Footer -->
+    <!-- Footer (IMPROVED SECTION START) -->
     <footer class="bg-deep-green text-white py-12">
-        <div class="container mx-auto px-6 text-center">
-            <a href="index.html">
-                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-16 mx-auto mb-4">
-            </a>
-            <p class="text-lg text-elegant-gold mb-6">Your Journey, Our Priority</p>
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="https://www.facebook.com/profile.php?id=61582183583786" class="hover:text-elegant-gold"><i data-lucide="facebook"></i></a>
-                <a href="https://www.instagram.com/goldenhoof_travels/" class="hover:text-elegant-gold"><i data-lucide="instagram"></i></a>
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pb-8 border-b border-white/10">
+                
+                <!-- Column 1: Logo and Brand -->
+                <div class="col-span-2 md:col-span-1">
+                    <a href="index.html" class="flex items-center space-x-2 mb-3">
+                        <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-10">
+                        <span class="text-xl font-bold text-elegant-gold">GoldenHoof Travels</span>
+                    </a>
+                    <p class="text-gray-400 text-sm mb-4">Your trusted partner for global career and travel solutions. Journey further, grow stronger.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61582183583786" class="text-gray-400 hover:text-elegant-gold transition"><i data-lucide="facebook"></i></a>
+                        <a href="https://www.instagram.com/goldenhoof_travels/" class="text-gray-400 hover:text-elegant-gold transition"><i data-lucide="instagram"></i></a>
+                        <!-- Add LinkedIn or Twitter/X if applicable -->
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="text-base font-bold text-elegant-gold mb-3 uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-1">
+                        <li><a href="index.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>About Us</a></li>
+                        <li><a href="destination.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Destinations</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Gallery</a></li>
+                        <li><a href="contact.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Our Services -->
+                <div>
+                    <h4 class="text-base font-bold text-elegant-gold mb-3 uppercase tracking-wider">Our Services</h4>
+                    <ul class="space-y-1">
+                        <li><a href="work-visa.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Work Visas</a></li>
+                        <li><a href="services.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Employment Services</a></li>
+                        <li><a href="services.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Visa Documentation</a></li>
+                        <li><a href="services.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Custom Travel</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact/Location Info -->
+                <div class="col-span-2 md:col-span-1">
+                    <h4 class="text-base font-bold text-elegant-gold mb-3 uppercase tracking-wider">Get In Touch</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-elegant-gold mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-400 text-sm">SCO 139, D-Block, Amritsar, India</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="phone" class="w-4 h-4 text-elegant-gold mt-1 mr-3 flex-shrink-0"></i>
+                            <a href="tel:+917973374228" class="text-gray-400 text-sm hover:text-white transition">+91 79733-74228</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="mail" class="w-4 h-4 text-elegant-gold mt-1 mr-3 flex-shrink-0"></i>
+                            <a href="mailto:goldenhoof.travels90@gmail.com" class="text-gray-400 text-sm hover:text-white transition">goldenhoof.travels90@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
-            <p class="text-gray-400 text-sm">&copy; 2025 GoldenHoof Travels. All Rights Reserved.</p>
+
+            <!-- Copyright Row -->
+            <div class="pt-6 text-center text-gray-500 text-sm">
+                &copy; 2025 GoldenHoof Travels. All Rights Reserved. <br><br>Built by <a href="www.yenoh.space"><u>Yenoh </u></a>
+            </div>
         </div>
     </footer>
 
@@ -291,12 +351,10 @@
         const contactContent = document.getElementById('contact-content');
         const thankYouMessage = document.getElementById('thank-you-message');
         const submitButton = document.getElementById('submit-button');
-        const mobileInput = document.getElementById('mobile'); // Get the mobile input field
+        const mobileInput = document.getElementById('mobile');
 
         // --- Mobile Input Validation (Ensures only digits are entered) ---
         mobileInput.addEventListener('input', function(e) {
-            // Remove any non-digit characters from the input value
-            // We allow '+' symbol commonly used for country code at the start
             let value = e.target.value.replace(/[^0-9+]/g, '');
             e.target.value = value;
         });
@@ -320,19 +378,15 @@
                     });
 
                     if (response.ok) {
-                        // Success: Hide form, show thank you message
                         contactContent.classList.add('hidden');
                         thankYouMessage.classList.remove('hidden');
                         contactForm.reset();
                     } else {
-                        // Error handling (e.g., Formspree error)
                         console.error('Form submission failed:', response.statusText);
-                        // Using a div for error message instead of alert, though using alert here for simplicity based on provided context
                         alert('Oops! There was an issue submitting your form. Please try again.'); 
                     }
                 } catch (error) {
                     console.error('Network error:', error);
-                     // Using a div for error message instead of alert, though using alert here for simplicity based on provided context
                     alert('Oops! A network error occurred. Please check your connection and try again.');
                 } finally {
                     submitButton.textContent = 'Send Message';

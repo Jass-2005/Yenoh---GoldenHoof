@@ -18,7 +18,6 @@
     <!-- Custom Styles -->
     <style>
         
-
         body {
         font-family: 'Inter', sans-serif;
         overflow-x: hidden; /* This is the key fix */
@@ -51,11 +50,9 @@
         }
         body {
             font-family: 'Inter', sans-serif;
-           
+            
             overflow-x: hidden; /* Prevent horizontal scrollbars from animations */
         }
-
-
 
 
         h1, h2, h3, h4, h5, h6 {
@@ -79,7 +76,7 @@
             border-radius: 9999px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-           
+            
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
             animation: pulse-shadow 2.5s infinite;
         }
@@ -121,153 +118,153 @@
             width: 100%;
         }
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes popIn {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* 3. HERO SECTION (WITH ORIGINAL BACKGROUND IMAGE) */
 .hero-section {
-  position: relative;
-  height: calc(100vh - 4rem);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  /* ORIGINAL BACKGROUND IMAGE IS HERE */
-  background-image: url('labour-burden-in-construction.jpg'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    position: relative;
+    height: calc(100vh - 4rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    /* ORIGINAL BACKGROUND IMAGE IS HERE */
+    background-image: url('labour-burden-in-construction.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* Dark overlay for better readability */
 .hero-section::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* black shade with 50% opacity */
-  z-index: 1;
-  /* ANIMATION: Fade-in for the overlay */
-  animation: fadeIn 1s ease-out forwards;
-  opacity: 0; /* Start invisible for animation */
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* black shade with 50% opacity */
+    z-index: 1;
+    /* ANIMATION: Fade-in for the overlay */
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0; /* Start invisible for animation */
 }
 
 /* 4. HERO CONTENT & TEXT ANIMATIONS */
 .hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 0 20px;
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
 }
 
 .hero-content h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  /* ANIMATION: Fades up after 0.5s */
-  animation: fadeInUp 0.8s ease-out 0.5s forwards;
-  opacity: 0; /* Start invisible for animation */
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    /* ANIMATION: Fades up after 0.5s */
+    animation: fadeInUp 0.8s ease-out 0.5s forwards;
+    opacity: 0; /* Start invisible for animation */
 }
 
 .hero-content p {
-  font-size: 1.2rem;
-  color: #e0e0e0;
-  margin-bottom: 2rem;
-  /* ANIMATION: Fades up after 0.8s */
-  animation: fadeInUp 0.8s ease-out 0.8s forwards;
-  opacity: 0; /* Start invisible for animation */
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin-bottom: 2rem;
+    /* ANIMATION: Fades up after 0.8s */
+    animation: fadeInUp 0.8s ease-out 0.8s forwards;
+    opacity: 0; /* Start invisible for animation */
 }
 
 /* 5. BUTTONS AND ANIMATIONS */
 
 /* Buttons Container */
 .cta-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  /* ANIMATION: Pops in after 1.2s */
-  animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 1.2s forwards; 
-  opacity: 0; /* Start invisible for animation */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    /* ANIMATION: Pops in after 1.2s */
+    animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 1.2s forwards; 
+    opacity: 0; /* Start invisible for animation */
 }
 
 /* Base Button Style (with smooth hover transition) */
 .cta-buttons .btn {
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 9999px;
-  text-decoration: none;
-  /* SMOOTH HOVER TRANSITION */
-  transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    text-decoration: none;
+    /* SMOOTH HOVER TRANSITION */
+    transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Primary button (Gold) */
 .primary-btn {
-  background-color: #d4af37; 
-  color: black;
-  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+    background-color: #d4af37; 
+    color: black;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
 }
 
 .primary-btn:hover {
-  background-color: #b8972a;
-  /* LIFT EFFECT */
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
+    background-color: #b8972a;
+    /* LIFT EFFECT */
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
 }
 
 /* Secondary button (Outline) */
 .secondary-btn {
-  background-color: transparent;
-  color: #d4af37; 
-  border: 2px solid #d4af37;
+    background-color: transparent;
+    color: #d4af37; 
+    border: 2px solid #d4af37;
 }
 
 .secondary-btn:hover {
-  background-color: #d4af37;
-  color: black;
-  /* SCALE EFFECT */
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+    background-color: #d4af37;
+    color: black;
+    /* SCALE EFFECT */
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
 }
 
 /* Responsive for small screens */
 @media (min-width: 640px) {
-  .cta-buttons {
-    flex-direction: row;
-  }
+    .cta-buttons {
+        flex-direction: row;
+    }
 
-  
+    
         #globe-container {
             position: absolute;
             top: 0;
@@ -339,9 +336,6 @@
         }
 
 
-
-  
-
     </style>
 </head>
 <body class="bg-off-white">
@@ -380,7 +374,7 @@
             </div>
         </div>
         <!-- Mobile Menu -->
-     <div id="mobile-menu" class="hidden lg:hidden bg-deep-green/95 backdrop-blur-sm">
+       <div id="mobile-menu" class="hidden lg:hidden bg-deep-green/95 backdrop-blur-sm">
     <a href="index.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Home</a>
     <a href="services.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Services</a>
     <a href="work-visa.html" class="block py-3 px-6 text-center text-white hover:bg-elegant-gold hover:text-deep-green nav-item-transition">Work & Visa</a>
@@ -394,15 +388,15 @@
     <main id="main-content" class="pt-16">
         <!-- Hero Section -->
         <div class="hero-section">
-  <div id="globe-container"></div>
-  <div class="hero-content">
-    <h1>Secure Your Work Permit Today</h1>
-    <p>Get expert immigration guidance and start your global career with GoldenHoof Travels.</p>
-    <div class="cta-buttons">
-      <a href="work-visa.html" class="btn primary-btn">Work Abroad</a>
-      <a href="contact.html" class="btn secondary-btn">Contact Us</a>
+    <div id="globe-container"></div>
+    <div class="hero-content">
+        <h1>Secure Your Work Permit Today</h1>
+        <p>Get expert immigration guidance and start your global career with GoldenHoof Travels.</p>
+        <div class="cta-buttons">
+            <a href="work-visa.html" class="btn primary-btn">Work Abroad</a>
+            <a href="contact.html" class="btn secondary-btn">Contact Us</a>
+        </div>
     </div>
-  </div>
 </div>
 
 <!-- Services Overview -->
@@ -446,9 +440,9 @@
     </div>
 </div>
         
-     <!-- Featured Destinations -->
+    <!-- Featured Destinations - MODIFIED FOR MOBILE SPACING -->
 <div class="py-6 md:py-20 bg-off-white">
-    <div class="container mx-auto px-4 text-center">
+    <div class="container mx-auto px-2 sm:px-4 text-center">
         <h2 class="text-3xl md:text-4xl font-bold text-deep-green mb-3 animate-on-scroll slide-in-up">
             Featured Destinations
         </h2>
@@ -456,17 +450,21 @@
             Explore a world of global opportunities, from career-advancing work permits to life-changing study programs, each opening doors to new experiences and growth abroad.
         </p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+        <!-- Decreased gap on mobile (gap-4) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+            
             <!-- Dubai -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover-effect animate-on-scroll slide-in-up" style="transition-delay: 0.3s;">
                 <svg class="plane-trail" viewBox="0 0 100 100" preserveAspectRatio="none">
                     <path d="M0,0 H100 V100 H0 Z" fill="none" />
                     <path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" />
                 </svg>
-                <img src="Dubai.jpg" alt="Dubai" class="w-full h-56 object-cover">
-                <div class="p-5 md:p-6">
-                    <h3 class="text-2xl font-bold text-deep-green mb-2">Dubai, UAE</h3>
-                    <p class="text-gray-600 mb-3">Global careers, tax-free income, and a life of opportunity.</p>
+                <!-- Image height reduced on mobile (h-48) -->
+                <img src="Dubai.jpg" alt="Dubai" class="w-full h-48 sm:h-56 object-cover"> 
+                <!-- Inner padding reduced on mobile (p-4) -->
+                <div class="p-4 md:p-6">
+                    <h3 class="text-xl md:text-2xl font-bold text-deep-green mb-2">Dubai, UAE</h3>
+                    <p class="text-gray-600 mb-3 text-sm md:text-base">Global careers, tax-free income, and a life of opportunity.</p>
                     <a href="destination.html" class="font-bold text-elegant-gold hover:text-deep-green">Discover More &rarr;</a>
                 </div>
             </div>
@@ -477,10 +475,10 @@
                     <path d="M0,0 H100 V100 H0 Z" fill="none" />
                     <path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" />
                 </svg>
-                <img src="moscow.jpg" alt="Moscow, Russia" class="w-full h-56 object-cover">
-                <div class="p-5 md:p-6">
-                    <h3 class="text-2xl font-bold text-deep-green mb-2">Moscow, Russia</h3>
-                    <p class="text-gray-600 mb-3">High demand, fast approvals, and a gateway to global experience.</p>
+                <img src="moscow.jpg" alt="Moscow, Russia" class="w-full h-48 sm:h-56 object-cover">
+                <div class="p-4 md:p-6">
+                    <h3 class="text-xl md:text-2xl font-bold text-deep-green mb-2">Moscow, Russia</h3>
+                    <p class="text-gray-600 mb-3 text-sm md:text-base">High demand, fast approvals, and a gateway to global experience.</p>
                     <a href="destination.html" class="font-bold text-elegant-gold hover:text-deep-green">Discover More &rarr;</a>
                 </div>
             </div>
@@ -491,17 +489,17 @@
                     <path d="M0,0 H100 V100 H0 Z" fill="none" />
                     <path d="M-10,5 L0,0 L-10,-5 L-7,0 Z" fill="var(--elegant-gold)" style="offset-path: path('M0,0 H100 V100 H0 Z');" />
                 </svg>
-                <img src="singapore.jpg" alt="Singapore" class="w-full h-56 object-cover">
-                <div class="p-5 md:p-6">
-                    <h3 class="text-2xl font-bold text-deep-green mb-2">Singapore</h3>
-                    <p class="text-gray-600 mb-3">High salaries, safe living, and limitless career growth.</p>
+                <img src="singapore.jpg" alt="Singapore" class="w-full h-48 sm:h-56 object-cover">
+                <div class="p-4 md:p-6">
+                    <h3 class="text-xl md:text-2xl font-bold text-deep-green mb-2">Singapore</h3>
+                    <p class="text-gray-600 mb-3 text-sm md:text-base">High salaries, safe living, and limitless career growth.</p>
                     <a href="destination.html" class="font-bold text-elegant-gold hover:text-deep-green">Discover More &rarr;</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+        
     </main>
     
     <section class="py-20 bg-deep-green text-white">
@@ -552,7 +550,7 @@
                 </div>
             </div>
             
-            </div>
+        </div>
         
         <div class="text-center mt-12 animate-on-scroll slide-in-up" style="transition-delay: 0.9s;">
             <a href="contact.html" class="cta-button">Share Your Story</a>
@@ -566,16 +564,71 @@
 
     <!-- Footer -->
     <footer class="bg-deep-green text-white py-12">
-        <div class="container mx-auto px-6 text-center">
-            <a href="index.html">
-                <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-16 mx-auto mb-4">
-            </a>
-            <p class="text-lg text-elegant-gold mb-6">Your Journey, Our Priority</p>
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="https://www.facebook.com/profile.php?id=61582183583786" class="hover:text-elegant-gold"><i data-lucide="facebook"></i></a>
-                <a href="https://www.instagram.com/goldenhoof_travels/" class="hover:text-elegant-gold"><i data-lucide="instagram"></i></a>
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pb-8 border-b border-white/10">
+                
+                <!-- Column 1: Logo and Brand -->
+                <div class="col-span-2 md:col-span-1">
+                    <a href="index.html" class="flex items-center space-x-2 mb-3">
+                        <img src="PURE LOGO.png" alt="GoldenHoof Travels Logo" class="h-10">
+                        <span class="text-xl font-bold text-elegant-gold">GoldenHoof Travels</span>
+                    </a>
+                    <p class="text-gray-400 text-sm mb-4">Your trusted partner for global career and travel solutions. Journey further, grow stronger.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61582183583786" class="text-gray-400 hover:text-elegant-gold transition"><i data-lucide="facebook"></i></a>
+                        <a href="https://www.instagram.com/goldenhoof_travels/" class="text-gray-400 hover:text-elegant-gold transition"><i data-lucide="instagram"></i></a>
+                        <!-- Add LinkedIn or Twitter/X if applicable -->
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="text-base font-bold text-elegant-gold mb-3 uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-1">
+                        <li><a href="index.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>About Us</a></li>
+                        <li><a href="destination.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Destinations</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Gallery</a></li>
+                        <li><a href="contact.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Our Services -->
+                <div>
+                    <h4 class="text-base font-bold text-elegant-gold mb-3 uppercase tracking-wider">Our Services</h4>
+                    <ul class="space-y-1">
+                        <li><a href="work-visa.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Work Visas</a></li>
+                        <li><a href="services.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Employment Services</a></li>
+                        <li><a href="services.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Visa Documentation</a></li>
+                        <li><a href="services.html" class="text-gray-400 text-sm hover:text-white transition duration-200 flex items-center footer-link"><i data-lucide="arrow-right" class="w-3 h-3 mr-2"></i>Custom Travel</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact/Location Info -->
+                <div class="col-span-2 md:col-span-1">
+                    <h4 class="text-base font-bold text-elegant-gold mb-3 uppercase tracking-wider">Get In Touch</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-elegant-gold mt-1 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-400 text-sm">SCO 139, D-Block, Amritsar, India</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="phone" class="w-4 h-4 text-elegant-gold mt-1 mr-3 flex-shrink-0"></i>
+                            <a href="tel:+917973374228" class="text-gray-400 text-sm hover:text-white transition">+91 79733-74228</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="mail" class="w-4 h-4 text-elegant-gold mt-1 mr-3 flex-shrink-0"></i>
+                            <a href="mailto:goldenhoof.travels90@gmail.com" class="text-gray-400 text-sm hover:text-white transition">goldenhoof.travels90@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
-            <p class="text-gray-400 text-sm">&copy; 2025 GoldenHoof Travels. All Rights Reserved.</p>
+
+            <!-- Copyright Row -->
+            <div class="pt-6 text-center text-gray-500 text-sm">
+                &copy; 2025 GoldenHoof Travels. All Rights Reserved. <br><br>Built by <a href="www.yenoh.space"><u>Yenoh </u></a>
+            </div>
         </div>
     </footer>
 
@@ -795,4 +848,3 @@ if (scrollToTopBtn) {
 </script>
 </body>
 </html>
-
